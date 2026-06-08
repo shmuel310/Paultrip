@@ -1,0 +1,1113 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>保羅行蹤及啟示錄七教會考察 · 深度學術與完整經文指引</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── 設計代碼與視覺變數 (新古典羊皮紙風格) ─── */
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C87A;
+    --gold-pale: #F7EDD0;
+    --deep: #161009;
+    --dark: #22180D;
+    --mid: #382817;
+    --clay: #8C6239;
+    --parchment: #FDFBF7;
+    --parchment-dark: #F2EADA;
+    --text-light: #F7EDD0;
+    --text-muted: #B3A28F;
+    --scripture-bg: #2E2114;
+    --scripture-border: #C9A84C;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--deep);
+    color: var(--text-light);
+    font-family: 'Noto Serif TC', 'EB Garamond', serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ─── 頂部大橫幅 ─── */
+  header {
+    background: linear-gradient(180deg, rgba(22, 16, 9, 0.9) 0%, rgba(34, 24, 13, 0.95) 100%),
+                radial-gradient(circle, rgba(201, 168, 76, 0.15) 0%, transparent 80%);
+    border-bottom: 2px solid var(--gold);
+    padding: 2.5rem 1rem 2rem 1rem;
+    text-align: center;
+    position: relative;
+  }
+
+  header h1 {
+    font-family: 'Cinzel', 'Noto Serif TC', serif;
+    font-size: 2.2rem;
+    color: var(--gold-light);
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  header p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 0 auto;
+    max-width: 600px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .header-decor {
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0.8rem auto;
+  }
+
+  /* ─── 全域搜索列 ─── */
+  .search-container {
+    max-width: 650px;
+    margin: -1.2rem auto 1.5rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .search-wrapper {
+    display: flex;
+    background: var(--dark);
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    padding: 3px 8px 3px 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  }
+
+  .search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--gold-pale);
+    font-size: 0.95rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    outline: none;
+    padding: 8px 0;
+  }
+
+  .search-input::placeholder {
+    color: #6E5B47;
+  }
+
+  .search-btn {
+    background: var(--gold);
+    border: none;
+    border-radius: 20px;
+    color: var(--deep);
+    padding: 6px 16px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+  }
+
+  .search-btn:hover {
+    background: var(--gold-light);
+  }
+
+  /* ─── 行程日期導覽列 ─── */
+  .tabs-wrapper {
+    background: var(--dark);
+    border-bottom: 1px solid var(--mid);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .tabs-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .tabs {
+    display: inline-flex;
+    padding: 0 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 1rem 1.2rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-btn span.day-num {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .tab-btn span.day-title {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .tab-btn:hover {
+    color: var(--gold-light);
+  }
+
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+    background: rgba(201, 168, 76, 0.05);
+  }
+
+  /* ─── 內容卡片與架構 ─── */
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem 5rem 1rem;
+  }
+
+  .day-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  .day-section.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 日程元數據資訊卡 */
+  .meta-card {
+    background: linear-gradient(135deg, var(--mid) 0%, var(--dark) 100%);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .meta-card::before {
+    content: "✦";
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    font-size: 6rem;
+    color: rgba(201, 168, 76, 0.03);
+    font-family: 'Cinzel', serif;
+  }
+
+  .meta-title {
+    font-family: 'Cinzel', 'Noto Serif TC', serif;
+    font-size: 1.5rem;
+    color: var(--gold-light);
+    margin: 0 0 0.8rem 0;
+    border-bottom: 1px dashed var(--mid);
+    padding-bottom: 0.5rem;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    font-size: 0.88rem;
+    color: var(--gold-pale);
+  }
+
+  .meta-item strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* 主題大標 */
+  .section-subtitle {
+    font-family: 'Cinzel', 'Noto Serif TC', serif;
+    font-size: 1.25rem;
+    color: var(--gold);
+    margin: 2rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+    border-left: 3px solid var(--gold);
+    padding-left: 10px;
+  }
+
+  /* 學術大卡片 */
+  .academic-card {
+    background: var(--dark);
+    border: 1px solid var(--mid);
+    border-radius: 8px;
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .academic-card h3 {
+    color: var(--gold-light);
+    font-size: 1.15rem;
+    margin: 0 0 1rem 0;
+    font-family: 'Noto Serif TC', serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .academic-card h3::before {
+    content: "❖";
+    color: var(--gold);
+    font-size: 0.9rem;
+  }
+
+  .academic-badge {
+    display: inline-block;
+    background: rgba(201, 168, 76, 0.12);
+    border: 1.5px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  /* 經文卡片 (專為景點現場免翻聖經設計) */
+  .verse-card {
+    background: var(--scripture-bg);
+    border-left: 4px solid var(--scripture-border);
+    border-right: 1px solid rgba(201, 168, 76, 0.1);
+    border-top: 1px solid rgba(201, 168, 76, 0.1);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    border-radius: 0 8px 8px 0;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .verse-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .verse-title span {
+    font-size: 0.8rem;
+    background: rgba(201, 168, 76, 0.15);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--gold-pale);
+  }
+
+  .verse-text {
+    font-size: 0.95rem;
+    color: #EBDCB9;
+    text-align: justify;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .verse-num {
+    color: var(--gold-light);
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-right: 3px;
+    vertical-align: super;
+  }
+
+  /* 神學反思與討論 */
+  .reflection-box {
+    background: rgba(140, 98, 57, 0.08);
+    border: 1px dashed var(--clay);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .reflection-box h4 {
+    margin: 0 0 0.8rem 0;
+    color: #E6B080;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .discussion-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .discussion-list li {
+    margin-bottom: 0.6rem;
+  }
+
+  /* ─── 快速導覽與交互 (FAB) ─── */
+  #quick-jump-fab {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .fab-main {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--deep);
+    border: 2px solid var(--gold-pale);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .fab-main:active {
+    transform: scale(0.9);
+  }
+
+  .fab-main.open {
+    transform: rotate(135deg);
+    background: var(--clay);
+    color: var(--gold-pale);
+  }
+
+  .fab-menu {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(34, 24, 13, 0.95);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    max-width: 260px;
+    backdrop-filter: blur(5px);
+  }
+
+  .fab-menu.visible {
+    display: flex;
+  }
+
+  .fab-item {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--gold-pale);
+    text-decoration: none;
+    font-size: 0.82rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background 0.2s;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+  }
+
+  .fab-item:last-child {
+    border-bottom: none;
+  }
+
+  .fab-item:hover {
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--gold-light);
+  }
+
+  /* 無結果提示 */
+  .no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    display: none;
+  }
+
+  /* 響應式微調 */
+  @media(max-width: 600px) {
+    header h1 {
+      font-size: 1.6rem;
+    }
+    header p {
+      font-size: 0.85rem;
+    }
+    .tab-btn {
+      padding: 0.8rem 0.9rem;
+    }
+    .tab-btn span.day-num {
+      font-size: 0.95rem;
+    }
+    .academic-card {
+      padding: 1.2rem;
+    }
+    .verse-card {
+      padding: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- 頂部標題區 -->
+  <header>
+    <h1>PAVLVS & APOCALYPSIS</h1>
+    <p>保羅行蹤及啟示錄七教會考察 · 深度學術與完整經文指引</p>
+    <div class="header-decor"></div>
+    <p style="font-size: 0.8rem; color: var(--gold);">雙軌整合指引：賴特 & 伯德《新約世界中的新約》歷史與神學視野</p>
+  </header>
+
+  <!-- 全域搜索 -->
+  <div class="search-container">
+    <div class="search-wrapper">
+      <input type="text" id="search-input" class="search-input" placeholder="搜尋景點、神學主題或經文（如：亞略巴古、以弗所、迦流...）">
+      <button onclick="performSearch()" class="search-btn">搜尋</button>
+    </div>
+  </div>
+
+  <!-- 行程導覽列 (自適應 8 天精華) -->
+  <div class="tabs-wrapper">
+    <div class="tabs" id="tabs-container">
+      <button class="tab-btn active" onclick="showTab(1)">
+        <span class="day-num">Day 1</span>
+        <span class="day-title">雅典</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(2)">
+        <span class="day-num">Day 2</span>
+        <span class="day-title">哥林多</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(3)">
+        <span class="day-num">Day 3</span>
+        <span class="day-title">帖撒羅尼迦</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(4)">
+        <span class="day-num">Day 4</span>
+        <span class="day-title">腓立比</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(5)">
+        <span class="day-num">Day 5</span>
+        <span class="day-title">以弗所</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(6)">
+        <span class="day-num">Day 6</span>
+        <span class="day-title">士每拿與別迦摩</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(7)">
+        <span class="day-num">Day 7</span>
+        <span class="day-title">推雅推喇與撒狄</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(8)">
+        <span class="day-num">Day 8</span>
+        <span class="day-title">非拉鐵非與老底嘉</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="no-results" class="no-results">未找到符合搜尋條件的內容，請嘗試其他關鍵字。</div>
+
+    <!-- ──────────────── DAY 1: 雅典 ──────────────── -->
+    <div id="day-1" class="day-section active">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 1：雅典（Athens）的哲學與多神信仰交鋒</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>衛城、帕德嫩神廟、亞略巴古 (Mars Hill)、古市集</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>阿提卡半島 (Attica)。當時為自由城市與羅馬帝國學術中心。</div>
+          <div class="meta-item"><strong>使徒行傳對應</strong>徒 17:16-34</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d1-sec1">1. 羅馬帝國下的歷史與社會背景</div>
+      <div class="academic-card">
+        <span class="academic-badge">The World Behind the Text</span>
+        <h3>大學之城的驕傲與多神景觀</h3>
+        <p>根據 Wright & Bird (2019) 考證，公元一世紀的雅典已不具備古典時期的帝國政治主導權，但它在羅馬帝國中依然享有崇高的「學術自由城市（Free City）」地位。雅典是斯多亞學派與伊比鳩魯學派的搖籃。羅馬精英（如西塞羅、提圖斯）皆以到雅典留學為榮。保羅看見「滿城都是偶像」（徒 17:16），並非文學誇張：當時衛城聳立著無數神龕，特別是高達 9 米的雅典娜銅像，從薩羅尼克灣即可望見。亞略巴古（Areopagus）則是城中最高司法、學術與道德秩序的監管議會，保羅在此並非接受正式刑事審判，而是被要求向這群哲學精英闡明其「新興學說」。</p>
+      </div>
+
+      <div class="section-subtitle" id="d1-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">使徒行傳 17:16-34 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">16</span>保羅在雅典等候他們的時候，看見滿城都是偶像，就心裡著急；<span class="verse-num">17</span>於是在會堂裡與猶太人和虔敬的人，並每日在市街上所遇見的人辯論。<span class="verse-num">18</span>還有以比古羅和斯多亞兩門的學士，與他爭論。有的說：「這胡言亂語的要說什麼？」有的說：「他似乎是傳說外邦鬼神的。」這話是因為保羅傳講耶穌與復活的道。<span class="verse-num">19</span>他們就把他帶到亞略巴古，說：「你所講的這新道，我們也可以知道嗎？<span class="verse-num">20</span>因為你有些奇怪的事傳到我們耳中，我們願意知道這些事是什麼意思。」<span class="verse-num">21</span>（雅典人和住在那裡的客旅常把光陰花在新聞上，最喜歡說說聽聽。）<br>
+          <span class="verse-num">22</span>保羅站在亞略巴古當中，說：「眾位雅典人哪，我看你們凡事很敬畏鬼神。<span class="verse-num">23</span>我遊行的時候，觀看你們所敬拜的，遇見一座壇，上面寫著『未識之神』。你們所不認識而敬拜的，我現在告訴你們。<span class="verse-num">24</span>創造宇宙和其中萬物的神，既是天地的主，就不住人手所造的殿，<span class="verse-num">25</span>也不用人手伺候，好像缺少什麼；自己倒將生命、氣息、萬物，賜給萬人。<span class="verse-num">26</span>他從一本造出萬族的人，住在全地上，並且預先定準他們的年限和所住的疆界，<span class="verse-num">27</span>要叫他們尋求神，或者可以揣摩而得，其實他離我們各人不遠；<span class="verse-num">28</span>我們生活、動作、存留，都在乎他。就如你們作詩的，有人說：『我們也是他所生的。』<span class="verse-num">29</span>我們既是神所生的，就不當以為神的神性像人手藝、心思所雕刻的金、銀、石。<span class="verse-num">30</span>世人蒙昧無知的時候，神並不監察，如今卻吩咐各處的人都要悔改。<span class="verse-num">31</span>因為他已經定了日子，要藉著他所設立的人按公義審判天下，並且使他從死裡復活，給萬人作可信的憑據。」<br>
+          <span class="verse-num">32</span>眾人聽見從死裡復活的話，就有譏譙他的；又有人說：「我們再聽你講這個吧！」<span class="verse-num">33</span>於是保羅從他們當中去了。<span class="verse-num">34</span>但有幾個人貼近他，信了主，其中有亞略巴古的官丟尼修，並一個婦人，名叫大馬哩，還有別人一同信從。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d1-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theology & Culture</span>
+        <h3>造物主獨一神論與希臘二元論的撞擊</h3>
+        <p>Wright 指出，保羅在亞略巴古的講章並非妥協性的自然神學，而是**猶太獨一神論對異教哲學的正面挑戰**。伊比鳩魯學派（Epicureans）主張神明退隱、物質為本、死亡即消散；斯多亞學派（Stoics）則抱持萬物皆神的泛神論與宿命觀。保羅以「創造、護理、審判、復活」四部曲瓦解了希臘思想。他指出神不住人手所造之殿（直接顛覆不遠處帕德嫩神廟的物理神格化），並引入了末日審判與**身體復活（resurrection）**。對於希臘思想而言，靈魂脫離肉體禁錮才是救贖，身體復活無疑是「愚拙的」（徒 17:32）。保羅在這裡正重塑一個全新的宇宙論與歷史觀。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>在今日多元化、世俗化的「雅典市集」中，什麼是現代人的「未識之神」（例如科技、資本、自我實現）？</li>
+          <li>保羅引用希臘詩人阿拉托斯（Aratus）的話來建構論述，這如何啟示我們在今日非基督徒文化中進行護教？</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── DAY 2: 哥林多 ──────────────── -->
+    <div id="day-2" class="day-section">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 2：哥林多（Corinth）的榮譽文化與十字架神學</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>哥林多運河、阿波羅神廟、審判台 (Bema)、以拉都路石碑</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>阿該亞省首府。地峽樞紐，雙港口（堅革哩與萊哈翁），羅馬殖民地。</div>
+          <div class="meta-item"><strong>對應書卷與經文</strong>徒 18:1-18；林前 1:18-31</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d2-sec1">1. 歷史社會處境：榮譽、階級與羅馬秩序</div>
+      <div class="academic-card">
+        <span class="academic-badge">Social Stratification</span>
+        <h3>釋奴、新貴與恩庇侍從制度（Patronage）</h3>
+        <p>公元前 44 年由凱撒重建的哥林多是一座**羅馬殖民地（Colonia）**，其居民大多是羅馬的自由民（freedmen）和退伍軍人。Wright 指出，哥林多是一座「暴發戶的城市」，沒有古老貴族的血統限制，所有人都在瘋狂追求社會階級的攀升、財富、影響力和名譽。城內盛行恩庇侍從制度（Patronage），富有的施恩者（Patron）資助平民以換取公共名聲。出土的「以拉都路石碑（Erastus Inscription）」中，以拉都自稱是市政官（Aedile），他自費鋪路以換取政治榮譽，這證實了保羅筆下已有社會高層加入教會（羅 16:23）。而這種社會風氣直接導致了哥林多教會內部的結黨紛爭與對保羅「貧無立錐」之使徒權柄的輕蔑。</p>
+      </div>
+
+      <div class="section-subtitle" id="d2-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">使徒行傳 18:1-12 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">1</span>這事以後，保羅離了雅典，來到哥林多。<span class="verse-num">2</span>遇見一個猶太人，名叫亞居拉，他生在本都；因為該撒克勞地命猶太人都離開羅馬，新近帶著妻百基拉，從義大利來。保羅就投奔了他們。<span class="verse-num">3</span>他們本是製造帳棚為業。保羅因與他們同業，就和他們同住做工。<span class="verse-num">4</span>每逢安息日，保羅在會堂裡辯論，勸化猶太人和希臘人。<span class="verse-num">5</span>西拉和提摩太從馬其頓來的時候，保羅為道迫切，向猶太人證明耶穌是基督。<span class="verse-num">6</span>他們既抗拒、毀謗，保羅就抖著衣裳，說：「你們的罪歸到你們自己頭上，與我無干。從今以後，我要往外邦人那裡去。」<span class="verse-num">7</span>於是離開那裡，進入一個人的家；這人名叫提多猶士都，是敬拜神的，他的家靠近會堂。<span class="verse-num">8</span>管會堂的基利司布全家都信了主，還有許多哥林多人聽了，就相信受洗。<span class="verse-num">9</span>夜間，主在異象中對保羅說：「不要怕，只管講，不要閉口，<span class="verse-num">10</span>有我與你同在，必沒有人下手害你，因為這城裡我有許多的百姓。」<span class="verse-num">11</span>保羅在那裡住了一年零六個月，將神的道教訓他們。<span class="verse-num">12</span>到迦流作亞該亞方伯的時候，猶太人同心起來攻擊保羅，拉他到審判台前...
+        </p>
+      </div>
+      <div class="verse-card">
+        <div class="verse-title">哥林多前書 1:18-25 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">18</span>因為十字架的道理，在那滅亡的人為愚拙；在我們得救的人，卻為神的大能。<span class="verse-num">19</span>就如經上記著：我要滅絕智慧人的智慧，廢棄聰明人的聰明。<span class="verse-num">20</span>智慧人在哪裡？文士在哪裡？這世上的辯士在哪裡？神豈不是警箍了這世上的智慧嗎？<span class="verse-num">21</span>世人憑自己的智慧，既不認識神，神就樂意用人所當作愚拙的道理，拯救那些信的人；這就是神的智慧了。<span class="verse-num">22</span>猶太人是要神蹟，希臘人是要智慧，<span class="verse-num">23</span>我們卻是傳釘十字架的基督，在猶太人為絆腳石，在外邦人為愚拙；<span class="verse-num">24</span>但在那蒙召的，無論是猶太人、希臘人，基督總為神的大能，神的智慧。<span class="verse-num">25</span>因神的愚拙總比人智慧，神的軟弱總比人強壯。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d2-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theological Conflict</span>
+        <h3>迦流裁判的法理影響與十架智慧的顛覆</h3>
+        <p>保羅在阿哥拉（Agora）中心的審判台（Bema）面對亞該亞省督迦流（Gallio，哲學家塞內卡的兄弟）。迦流拒絕受理猶太人對保羅的指控，Wright 認為這一法理裁決極其關鍵：它在帝國法律層面上，**默認了基督教信仰仍屬於羅馬法保護下的猶太合法宗教（Religio Licita）**，這為使徒行傳中福音在羅馬帝國初期的迅速擴張提供了法律保護傘。然而，保羅在哥林多前書中以「釘十字架的基督」徹底粉碎了羅馬的榮譽邏輯。十字架在羅馬帝國是最低賤的極刑，象徵徹底的羞辱與權力剝奪。保羅卻宣告十字架是上帝大能與智慧的極致，直接嘲弄了哥林多信徒世俗的階級優越感。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>站在哥林多遺址的 Bema 審判台前，思想當社會將財富、學識與「恩庇地位」視為成功標準時，我們如何活出「十字架的愚拙與大能」？</li>
+          <li>哥林多教會將世俗的分裂與攀比帶入教會，這與今日信徒在職場、教會中的人際關係有何相似之處？</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── DAY 3: 帖撒羅尼迦 ──────────────── -->
+    <div id="day-3" class="day-section">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 3：帖撒羅尼迦與庇哩亞的帝國叛國控訴</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>帖撒羅尼迦古論壇、凱旋門、庇哩亞保羅講道台</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>馬其頓行省首府。位於埃格那西亞大道 (Via Egnatia) 上的自由市與海運樞紐。</div>
+          <div class="meta-item"><strong>對應書卷與經文</strong>徒 17:1-15；帖前 1:1-10</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d3-sec1">1. 歷史社會處境：皇帝崇拜與地方官的政治焦慮</div>
+      <div class="academic-card">
+        <span class="academic-badge">The Imperial Pressure</span>
+        <h3>自由城市的政治紅線與「另一個君王」的指控</h3>
+        <p>帖撒羅尼迦作為馬其頓的「自由城市（Civitas Libera）」，免於駐軍與直接重稅，但這種特權極度依賴於他們對羅馬的忠誠。Wright & Bird 強調，帖撒羅尼迦是皇帝崇拜（Imperial Cult）的重鎮。因此，當不信的猶太人指控保羅的同工耶孫等人「違背該撒的命令，說另有一個王耶穌」（徒 17:7）時，立刻引起了地方官（Politarchs，出土銘文已證實此官銜的歷史真實性）與群眾的極度恐慌。在羅馬法律中，宣稱有「另一個君王（heteron basilea）」等同於叛國罪（maiestas）。新建立的帖撒羅尼迦教會隨即面臨巨大的社會邊緣化與經濟排擠，這也是保羅在帖前中急切安慰他們的背景。</p>
+      </div>
+
+      <div class="section-subtitle" id="d3-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">使徒行傳 17:1-10 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">1</span>保羅和西拉經過暗妃波里、阿波羅尼亞，來到帖撒羅尼迦，在那裡有猶太人的會堂。<span class="verse-num">2</span>保羅照他素常的規矩進去，一連三個安息日，用聖經與他們辯論，<span class="verse-num">3</span>講解陳明基督必須受害，從死裡復活；又說：「我所傳與你們的這位耶穌，就是基督。」<span class="verse-num">4</span>他們中間有些人聽了勸，就附從保羅和西拉，並有許多虔敬的希臘人，尊貴的婦女也不少。<span class="verse-num">5</span>但那不信的猶太人心裡嫉妒，招聚了些市井匪類，搭夥成群，聳動合城的人，闖過耶孫的家，要拉出他們往百姓那裡去。<span class="verse-num">6</span>找不著他們，就把耶孫和幾個弟兄拉到地方官那裡，喊叫說：「那攪亂天下的也到這裡來了，<span class="verse-num">7</span>耶孫收留他們。這些人都違背該撒的命令，說另有一個王耶穌。」<span class="verse-num">8</span>眾人和地方官聽見這話，就驚慌了；<span class="verse-num">9</span>於是取了耶孫和其餘之人的保狀，釋放了他們。<span class="verse-num">10</span>弟兄們隨即在夜間送保羅和西拉往庇哩亞去。二人到了，就進入猶太人的會堂。
+        </p>
+      </div>
+      <div class="verse-card">
+        <div class="verse-title">帖撒羅尼迦前書 1:4-10 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">4</span>被神揀選的弟兄啊，我知道你們是蒙揀選的；<span class="verse-num">5</span>因為我們的福音傳到你們那裡，不獨在乎言語，也在乎權能和聖靈，並充足的信心，正如你們知道、我們在你們那裡，為你們的緣故是怎樣為人。<span class="verse-num">6</span>並且你們在大難之中，蒙了聖靈所賜的喜樂，領受真道就效法我們，也效法了主；<span class="verse-num">7</span>甚至你們作了馬其頓和亞該亞所有信主之人的榜樣。<span class="verse-num">8</span>因為主的道從你們那裡已經傳揚開來。你們向神的信心不但在馬其頓和亞該亞，就是在各處也都傳開了；所以不用我們說什麼話。<span class="verse-num">9</span>因為他們自己已經報明我們是怎樣進到你們那裡，你們又是怎樣離棄偶像，歸向神，要服事那又真又活的神，<span class="verse-num">10</span>等候他兒子從天降臨，就是他從死裡復活的─那位救我們脫離將來忿怒的耶穌。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d3-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theological Eschatology</span>
+        <h3>主臨（Parousia）的顛覆性政治修辭</h3>
+        <p>Wright 指出，保羅在帖前中使用的末世論語彙「**Parousia（主臨／降臨）**」與「**Apantesis（迎見）**」，在公元一世紀具有強烈的帝國政治色彩。當羅馬皇帝或征服者巡撫某個城市時，該城的精英與公民會出城「迎見（Apantesis）」他，並在凱旋的歡呼中將他簇擁進城。保羅在帖前 4:16-17 中，將這一畫面借用在基督的再來上。信徒在空中與主相遇，並非逃離世界，而是像羅馬公民一樣，出迎這位真正的萬王之王、和平之君，並護送祂回到這被更新的地上掌權。這直接挑戰了凱撒作為地上唯一「救主」和「和平帶來者」的終極宣稱。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>「離棄偶像，歸向神，要服事那又真又活的神」（帖前 1:9）在當時意味著切斷與異教社會、家族祭祀及商業網絡的聯繫。今日我們跟隨基督需要付出怎樣的社會性代價？</li>
+          <li>庇哩亞人「天天考查聖經，要曉得這道是與不是」（徒 17:11），這對我們在當今資訊爆炸、假學說橫行的時代有何啟發？</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── DAY 4: 腓立比 ──────────────── -->
+    <div id="day-4" class="day-section">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 4：腓立比（Philippi）的羅馬公民特權與天國公民權</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>尼亞波利（卡瓦拉港口）、腓立比羅馬劇場、論壇、監獄、呂底亞甘吉特斯河洗禮處</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>馬其頓東部。羅馬直轄軍事殖民地，享有「義大利權（Ius Italicum）」。</div>
+          <div class="meta-item"><strong>對應書卷與經文</strong>徒 16:11-40；腓 2:5-11, 3:17-21</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d4-sec1">1. 歷史社會處境：義大利特權、軍功退伍軍人與羅馬自豪</div>
+      <div class="academic-card">
+        <span class="academic-badge">The Roman Colony</span>
+        <h3>微縮版的羅馬城與高度排外的拉丁階級</h3>
+        <p>公元前 42 年安東尼與屋大維在腓立比戰役中擊敗凱撒的刺客，隨後將此地改建為**羅馬軍事殖民地（Colonia）**。此地享有羅馬帝國最高級別的特權——「義大利權（Ius Italicum）」，意味著土地免稅、實行羅馬法律、由兩名執政官（Duoviri）直接治理。居民穿戴羅馬服飾，以使用拉丁文和羅馬公民權為至高榮譽。Wright 指出，腓立比是「微縮版的羅馬」。在這種高度親羅馬、強調公民尊嚴的環境下，保羅與西拉（同為羅馬公民）被非法鞭打並囚禁，直接違反了羅馬法（Lex Valeria-Porcia）。而呂底亞（賣紫色布疋的富有商人，代表非公民階層）的歸信，則打破了這座殖民地嚴格的社會階級藩籬。</p>
+      </div>
+
+      <div class="section-subtitle" id="d4-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">使徒行傳 16:16-24, 35-40 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">16</span>後來，我們往那禱告的地方去。有一個使女迎著面來，他被巫鬼所附，用法術，叫他主人們大得財利。<span class="verse-num">17</span>他跟隨保羅和我們，喊著說：「這些人是至高神的僕人，對你們傳說救人的道。」<span class="verse-num">18</span>他一連多日這樣喊叫，保羅就心中厭煩，轉身對那鬼說：「我奉耶穌基督的名，吩咐你從他身上出來！」那鬼當時就出來了。<span class="verse-num">19</span>使女的主人們見得利的指望沒有了，便揪住保羅和西拉，拉他們往市上去見官長；<span class="verse-num">20</span>又帶到官長面前說：「這些人原是猶太人，竟騷擾我們的城，<span class="verse-num">21</span>傳我們羅馬人所不可受不可行的規矩。」<span class="verse-num">22</span>眾人就一同起來攻擊他們。官長吩咐剝了他們的衣裳，用棍打；<span class="verse-num">23</span>打多了，便下在監裡，囑咐禁卒嚴緊看守...<br>
+          <span class="verse-num">35</span>到了天亮，官長打發差役來，說：「釋放那兩個人吧。」<span class="verse-num">36</span>禁卒就把這話告訴保羅說：「官長打發人來釋放你們，如今可以出監，平平安安地去吧。」<span class="verse-num">37</span>保羅卻說：「我們是羅馬人，並沒有定罪，他們就在眾人面前打了我們，又下在監裡，現在要私下攆我們出去嗎？這不行！得讓他們自己來領我們出去。」<span class="verse-num">38</span>差役把這話回報官長。官長聽見他們是羅馬人，就害怕了，<span class="verse-num">39</span>於是來勸他們，領他們出來，求他們離開那城。<span class="verse-num">40</span>二人出了監，往呂底亞家裡去；見了弟兄們，勸慰他們一番，就走了。
+        </p>
+      </div>
+      <div class="verse-card">
+        <div class="verse-title">腓立比書 2:5-11 <span>和合本 (基督頌歌)</span></div>
+        <p class="verse-text">
+          <span class="verse-num">5</span>你們當以基督耶穌的心為心：<span class="verse-num">6</span>他本有神的形像，不以自己與神同等為強奪的；<span class="verse-num">7</span>反倒虛己，取了奴僕的形像，成為人的樣式；<span class="verse-num">8</span>既有人的樣子，就自己卑微，存心順服，以至於死，且死在十字架上。<span class="verse-num">9</span>所以，神將他升為至高，又賜給他那超乎萬名之上的名，<span class="verse-num">10</span>叫一切在天上的、地上的，和地底下的，因耶穌的名無不屈膝，<span class="verse-num">11</span>無不口稱「耶穌基督為主」，使榮耀歸與父神。
+        </p>
+      </div>
+      <div class="verse-card">
+        <div class="verse-title">腓立比書 3:20-21 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">20</span>我們卻是天上的國民，並且等候救主，就是主耶穌基督從天上降臨。<span class="verse-num">21</span>他要按著那能叫萬有歸服自己的大能，將我們這卑賤的身體改變形狀，和他自己榮耀的身體相似。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d4-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theological Politics</span>
+        <h3>天國國民（Politeuma）與基督凱旋頌歌的反帝國宣示</h3>
+        <p>Wright 指出，腓立比書 3:20 中的「**天上的國民（Politeuma）**」是精確的殖民地用語。腓立比市民的使命，是把「羅馬的榮耀與法治」實現在馬其頓。保羅反過來宣告：基督徒是「天國的殖民（Politeuma）」，我們的任務不是逃往天上，而是**把天國的秩序、公義與和平帶到地上**。此外，著名的「基督頌歌（腓 2:5-11）」是一篇極具震撼力的反帝國文宣。凱撒（如奧古斯都、尼祿）透過強權、暴力與自我神化不斷自我晉升。而宇宙的真主宰耶穌，卻主動自我傾倒、降為奴僕、死於帝國最殘酷的十字架上，最終被神升為至高。這首詩歌要求信徒在凱撒效忠與基督主權之間做出不可妥協的抉擇。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>站在甘吉特斯河（Krenides/Gangites River）畔，思想原本在羅馬秩序下毫無交集的呂底亞（富商）、被鬼附的使女（奴隸底層）和羅馬獄卒（軍人體制），如何因福音成為同桌吃飯的「天上國民」？</li>
+          <li>我們是否像當時的腓立比人炫耀羅馬公民身分之一樣，被眼前的社會特權、國籍或世俗身分蒙蔽，而遺忘了身為「天國殖民者」在世上的使命？</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── DAY 5: 以弗所 ──────────────── -->
+    <div id="day-5" class="day-section">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 5：以弗所（Ephesus）的商業霸權與屬靈爭戰</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>大劇場、塞爾蘇斯圖書館、哈德良神廟、亞底米神廟遺址、聖約翰大教堂</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>小亞細亞（亞西亞行省）首府。愛琴海東岸最大港口與貿易中心。</div>
+          <div class="meta-item"><strong>對應書卷與經文</strong>徒 19:21-41；啟 2:1-7</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d5-sec1">1. 歷史社會處境：銀匠公會、廟祝與全球化經濟</div>
+      <div class="academic-card">
+        <span class="academic-badge">The Temple Economy</span>
+        <h3>亞底米神廟的金融中心功能與帝國守廟者（Neokoros）</h3>
+        <p>根據 Wright 考證，以弗所的亞底米神廟（Artemis）是古代世界七大奇蹟之一，它不僅是宗教中心，更是**小亞細亞的最大銀行與金融信託中心**。整座城市的經濟完全寄生於朝聖觀光業與祭祀經濟。以弗所擁有羅馬帝國頒發的「守廟者（Neokoros / Temple Warden）」榮譽，這意味著它代表整個亞西亞行省維護皇帝崇拜與亞底米信仰。銀匠底米丟（Demetrius）發動的大劇場暴動（徒 19），本質上是**一場經濟與政治利益受損引發的社會騷亂**。福音帶來的個人悔改與偶像離棄，直接動搖了以弗所的朝聖銀龕製造鏈與帝國忠誠度，因此被視為對整座城市命脈的恐怖襲擊。</p>
+      </div>
+
+      <div class="section-subtitle" id="d5-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">使徒行傳 19:23-34 <span>和合本</span></div>
+        <p class="verse-text">
+          <span class="verse-num">23</span>那時，關於這道路，起了不小的騷動。<span class="verse-num">24</span>有一個銀匠，名叫底米丟，是製造亞底米神銀龕的，他使手藝人得利不少。<span class="verse-num">25</span>他聚集他們和同行的工人，說：「眾位，你們知道我們是倚靠這生意發財。<span class="verse-num">26</span>這保羅不但在以弗所，也幾乎在亞西亞全地，引誘迷惑許多人，說：『人手所造的，不是神。』這是你們親眼看見親耳聽見的。<span class="verse-num">27</span>這樣，不獨我們這行業要被人藐視，就是大女神亞底米的廟也要被看為無有，連亞西亞全地和普天下所敬拜的女神之威榮也要消滅了。」<br>
+          <span class="verse-num">28</span>眾人聽見，就怒氣填胸，喊著說：「大哉，以弗所人的亞底米啊！」<span class="verse-num">29</span>滿城都混亂起來。眾人拿住與保羅同行的馬其頓人該猶和亞里達古，齊心擁進戲園裡去。<span class="verse-num">30</span>保羅想要進去到百姓那裡，門徒卻不許他去。<span class="verse-num">31</span>還有亞西亞幾位首領，是保羅的朋友，打發人來勸他，不要冒險到戲園裡去。<span class="verse-num">32</span>聚集的人紛紛亂亂，有喊叫這個的，有喊叫那個的，大半不知道是為什麼聚集。<span class="verse-num">33</span>有人把亞力山大從眾人中帶出來，猶太人推他往前。亞力山大就擺手，要向百姓分訴。<span class="verse-num">34</span>只因他們認出他是猶太人，就同聲喊著說：「大哉，以弗所人的亞底米啊！」如此喊叫約有兩小時。
+        </p>
+      </div>
+      <div class="verse-card">
+        <div class="verse-title">啟示錄 2:1-7 <span>和合本 (給以弗所教會的信)</span></div>
+        <p class="verse-text">
+          <span class="verse-num">1</span>你要寫信給以弗所教會的使者，說：那右手拿著七星、在七個金燈臺中間行走的，說：<span class="verse-num">2</span>我知道你的行為、勞碌、忍耐，也知道你不能容忍惡人。你也曾試驗那自稱為使徒卻不是使徒的，看出他們是假的來。<span class="verse-num">3</span>你也能忍耐，曾為我的名勞碌，並不乏倦。<span class="verse-num">4</span>然而有一件事我要責備你，就是你把起初的愛心離棄了。<span class="verse-num">5</span>所以，應當回想你是從哪裡墜落的，並要悔改，行起初所行的事。你若不悔改，我就臨到你那裡，把你的燈臺從原處挪去。<span class="verse-num">6</span>然而你還有一件可取的事，就是你恨惡尼哥拉一黨人的行為，這也是我所恨惡的。<span class="verse-num">7</span>凡有耳的，就應當聽！聖靈向眾教會所說的話，得勝的，我必將神樂園中生命樹的果子賜給他吃。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d5-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theological Ecclesiology</span>
+        <h3>起初愛心的失落與對抗「天空屬靈氣的惡魔」</h3>
+        <p>在以弗所書中，保羅揭示了基督教思想中最重要的宇宙觀之一：信徒所面對的爭戰，不是對抗有血有肉的人，而是「對抗那些執政的、掌權的、管轄這幽暗世界的，以及天空屬靈氣的惡魔」（弗 6:12）。在以弗所這座巫術（以弗所字卷，徒 19:19）與帝國神權密布的城市，邪靈勢力透過**體制、偶像經濟、與社會權力**顯現。然而，幾十年後，當約翰在啟示錄寫信給以弗所時（啟 2:1-7），這間成功抵擋了異端（尼哥拉一黨）與外界逼迫的模範教會，卻被責備「離棄了起初的愛心」。Wright 警示：當教會在與異教世界的長期抗爭中變得只剩下教義的防衛與冰冷的律法，而失去了對基督與鄰舍那火熱、革命性的愛心時，它就失去了身為金燈臺的本質。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>置身於能容納 2.5 萬人的以弗所大劇場（Great Theatre）中，想像當年兩萬多人歇斯底里高喊「大哉以弗所人的亞底米」達兩小時的音浪，我們在當今面對大眾世俗文化的集體壓力時，是否有勇氣站立得穩？</li>
+          <li>在我們的信仰生活中，是否也像以弗所教會一樣，空有純正的教義防線與忙碌的服事（啟 2:2-3），卻在不知不覺中遺失了最核心的「起初的愛心」？</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── DAY 6: 士每拿與別迦摩 ──────────────── -->
+    <div id="day-6" class="day-section">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 6：啟示錄七教會（士每拿與別迦摩）—— 苦難與撒旦的座位</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>士每拿古市集、別迦摩衛城、宙斯大祭壇遺址、紅色教堂</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>小亞細亞西北部。別迦摩為昔日阿塔羅斯王國首都，亞西亞行省早期行政與皇帝崇拜首府。</div>
+          <div class="meta-item"><strong>對應書卷與經文</strong>啟 2:8-17</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d6-sec1">1. 歷史社會處境：皇帝崇拜的風暴與忠誠的死線</div>
+      <div class="academic-card">
+        <span class="academic-badge">The Martyrdom Context</span>
+        <h3>士每拿的極端貧困與別迦摩的帝國司法利劍</h3>
+        <p>Wright 指出，**士每拿（Smyrna）**是羅馬最忠誠的盟友，公元前 195 年便建立了羅馬女神（Dea Roma）神廟，並於公元 26 年爭取到為提庇留皇帝建造神廟的特權。在這裡，拒絕皇帝崇拜的基督徒在經濟上被完全剝奪，淪為「貧窮」（啟 2:9），且面臨當地強大猶太社群的排斥（稱為「撒旦一會」）。而**別迦摩（Pergamum）**則是行省的法律與宗教首都，擁有利劍權（ius gladii，即羅馬總督在此擁有直接宣判死刑的權柄）。別迦摩衛城頂端高聳的宙斯祭壇（Altar of Zeus）俯瞰全城，噴吐著不熄的祭祀煙塵，這就是約翰筆下「撒旦座位之處」（啟 2:13）的歷史實體。在此背景下，安提帕成為了第一批被皇帝崇拜體制處決的殉道者。</p>
+      </div>
+
+      <div class="section-subtitle" id="d6-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">啟示錄 2:8-17 <span>和合本 (給士每拿與別迦摩教會的信)</span></div>
+        <p class="verse-text">
+          <span class="verse-num">8</span>你要寫信給士每拿教會的使者，說：那首先的、末後的、死過又活的，說：<span class="verse-num">9</span>我知道你的患難，你的貧窮（你卻是富足的），也知道那自稱是猶太人所說的毀謗話，其實他們不是猶太人，乃是撒但一會的人。<span class="verse-num">10</span>你將要受的苦你不用怕。魔鬼要把你們中間幾個人下在監裡，叫你們被試煉，你們必受患難十日。你務要至死忠心，我就賜給你那生命的冠冕。<span class="verse-num">11</span>凡有耳的，就應當聽！聖靈向眾教會所說的話，得勝的，必不受第二次死的害。<br>
+          <span class="verse-num">12</span>你要寫信給別迦摩教會的使者，說：那有兩刃利劍的，說：<span class="verse-num">13</span>我知道你的居所，就是有撒但座位之處；當我忠心的見證人安提帕在你們中間、撒但所住的地方被殺之時，你還堅守我的名，沒有棄絕我的道。<span class="verse-num">14</span>然而，有幾件事我要責備你：因為在你那裡有人服從了巴蘭的教訓；這巴蘭曾教導巴勒將絆腳石放在以色列人面前，叫他們吃祭偶像之物，行姦淫的事。<span class="verse-num">15</span>你那裡也有人照樣服從了尼哥拉一黨人的教訓。<span class="verse-num">16</span>所以，你當悔改；若不悔改，我就快臨到你那裡，用我口中的劍攻擊他們。<span class="verse-num">17</span>凡有耳的，就應當聽！聖靈向眾教會所說的話，得勝的，我必將那隱藏的嗎哪賜給他，並賜他一塊白石，石上寫著新名；除了那領受的以外，沒有人能認識。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d6-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theological Conflict</span>
+        <h3>真實的富足與帝國司法利劍的逆轉</h3>
+        <p>約翰在別迦摩書信中，將復活的主描繪為「那手握兩刃利劍的」（啟 2:12）。這是一個針鋒相對的末世論諷刺：羅馬總督雖手握象徵帝國最高司法權的「利劍（Gladius）」以隨意處決基督徒（如安提帕），但基督口中所吐出的真理之劍，才是宇宙中判定生死與終極審判的最高司法權限。而在士每拿，基督宣告信徒雖然因抗拒帝國妥協而失去了財產、肉身生命，但在神眼中卻是「富足的」。生命的冠冕（Stephanon）直接對應了士每拿衛城山頂被稱為「士每拿王冠」的環形神廟群外觀。約翰向信徒保證：真正的榮耀與勝利，不屬於凱撒的加冕，而屬於那至死忠心的得勝者。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>「你務要至死忠心，我就賜給你那生命的冠冕」（啟 2:10）。在當今看似沒有肉身殉道危險的舒適環境中，「至死忠心」對我們意味著什麼？</li>
+          <li>別迦摩教會內部出現了「服從巴蘭與尼哥拉一黨教訓」的人，這是一種主張在羅馬宴席中「適度妥協以保全生命財產」的神學。我們今日是否也常以「靈活適應、與時俱進」為名，在核心真理上與世俗世界妥協？</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── DAY 7: 推雅推喇與撒狄 ──────────────── -->
+    <div id="day-7" class="day-section">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 7：啟示錄七教會（推雅推喇與撒狄）—— 商業妥協與靈性垂死</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>推雅推喇古遺址、撒狄古猶太會堂、阿提米斯神廟、金庫遺址</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>呂底亞內陸。推雅推喇為軍事防禦與貿易重鎮；撒狄為古呂底亞王國（克羅伊斯王）首都，以產金富庶聞名。</div>
+          <div class="meta-item"><strong>對應書卷與經文</strong>啟 2:18-29, 3:1-6</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d7-sec1">1. 歷史社會處境：行業公會的社交綁架與固若金湯的虛假安全感</div>
+      <div class="academic-card">
+        <span class="academic-badge">Socio-Economic Guilds</span>
+        <h3>推雅推喇的羊毛與染料行會，以及撒狄的歷史軍事盲區</h3>
+        <p>Wright 指出，**推雅推喇（Thyatira）**是一座極度發達的商業城市，城內擁有全亞西亞最嚴密的**行業公會（Trade Guilds）**（如染布、皮革、銅匠等公會，使徒行傳中的呂底亞即來自此地）。在當時，加入公會是維持生計的唯一途徑，而所有公會宴席都與異教神明祭祀、以及席間的性放蕩緊密相連。拒絕參與祭祀宴席，等同於主動切斷所有商業客源。這正是假先知「耶洗別」神學大行其道的社會背景——她試圖遊說基督徒可以在名義上跟隨耶穌，同時繼續參加公會的祭祀以維持生計。而**撒狄（Sardis）**則是一座建在高聳陡峭懸崖之上的天險之城。然而在歷史上，這座號稱不可攻破的堡壘，卻兩度（公元前 546 年居魯士攻陷、公元前 214 年安提阿古大帝攻陷）因為守兵在夜間過度自信、疏於防範，而被敵軍沿著懸崖縫隙悄悄爬上城牆攻破。約翰借用這一眾所周知的歷史創傷，警告撒狄信徒「若不警醒」，審判將如賊一樣在他們毫無防備時臨到。</p>
+      </div>
+
+      <div class="section-subtitle" id="d7-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">啟示錄 2:18-29 <span>和合本 (給推雅推喇教會的信)</span></div>
+        <p class="verse-text">
+          <span class="verse-num">18</span>你要寫信給推雅推喇教會的使者，說：那眼目如火焰、腳像光明銅的神之子說：<span class="verse-num">19</span>我知道你的行為、愛心、信心、勤勞、忍耐，又知道你末後所行的事比起初所行的更多。<span class="verse-num">20</span>然而，有一件事我要責備你，就是你容讓那自稱是先知的婦人耶洗別教導我的僕人，引誘他們行姦淫，吃祭偶像之物。<span class="verse-num">21</span>我曾給他悔改的機會，他卻不肯悔改他的淫行。<span class="verse-num">22</span>看哪，我要叫他病臥在床。那些與他行淫的人，若不悔改他們所行的，我也要叫他們同受大患難。<span class="verse-num">23</span>我又要殺死他的黨類，叫眾教會都知道，我是那察看人肺腑心腸的，並要照你們的行為報應你們各人。<span class="verse-num">24</span>至於你們推雅推喇其餘的人，就是一切不從那教訓、不曉得他們素常所說撒但深奧之理的人，我告訴你們，我不將別的擔子放在你們身上。<span class="verse-num">25</span>但你們已經有的，總要持守，直等到我來。<span class="verse-num">26</span>那得勝又遵守我命令到底的，我要賜給他權柄制伏列國；<span class="verse-num">27</span>他必用鐵杖轄管他們，將他們如同窯戶的瓦器摔碎，像我從我父領受的權柄一樣。<span class="verse-num">28</span>我又要把晨星賜給他。<span class="verse-num">29</span>凡有耳的，就應當聽！聖靈向眾教會所說的話。
+        </p>
+      </div>
+      <div class="verse-card">
+        <div class="verse-title">啟示錄 3:1-6 <span>和合本 (給撒狄教會的信)</span></div>
+        <p class="verse-text">
+          <span class="verse-num">1</span>你要寫信給撒狄教會的使者，說：那有神的七靈和七星的，說：我知道你的行為，按名你是活的，其實是死的。<span class="verse-num">2</span>你要警醒，堅固那剩下將要衰微的；因我見你的行為，在我神面前沒有一樣是完全的。<span class="verse-num">3</span>所以要回想你是怎樣領受、怎樣聽見的，又要遵守，並要悔改。若不警醒，我必臨到你那裡，如同賊一樣。我幾時臨到，你也決不能知道。<span class="verse-num">4</span>然而在撒狄，你還有幾名是未曾污穢自己衣服的，他們要穿白衣與我同行，因為他們是合格的。<span class="verse-num">5</span>得勝的必這樣穿白衣，我也決不從生命冊上塗抹他的名；且要在我父面前，和我父的眾使者面前，認他的名。<span class="verse-num">6</span>凡有耳的，就應當聽！聖靈向眾教會所說的話。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d7-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theological Integrity</span>
+        <h3>純潔的白衣與生命冊上的終極公民身分</h3>
+        <p>約翰斥責推雅推喇的「耶洗別教導」，指出這種在商言商、實用主義的「撒旦深奧之理」（啟 2:24）會徹底瓦解教會的聖潔性。而在撒狄，儘管這座城市擁有全亞西亞最大、最雄偉的猶太會堂遺址（出土了精美的馬賽克和鷹雕，展現出猶太社群與羅馬權力的深度融合），其教會在社會上名聲顯赫、安逸無虞，但基督卻宣判他們「按名是活的，其實是死的」（啟 3:1）。他們已經習慣了與當地的富有異教階層共生，衣服沾染了污穢。基督應許給得勝者「穿白衣」（象徵末世祭司與得勝者的純潔），並承諾「絕不從生命冊上塗抹他的名」——這直接針對了當時古羅馬城市中，若有公民犯罪或死亡，其名字就會被從城市公民登記冊（album civitatis）中除名的嚴酷現實。主耶穌保證：那些為了天國聖潔而被地上名單抹去的人，其名字在天國的公民冊上將被永遠尊崇。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>推雅推喇信徒面臨的「行業公會壓力」，就像今日我們在商業職場中面臨的「潛規則」、不誠實的利益網絡、或必須妥協道德標準的應酬。我們如何在維持生計與堅守天國主權之間做出抉擇？</li>
+          <li>站在高聳的撒狄懸崖遺址前，回想兩度因大意而失守的歷史，這如何警示我們在信仰安逸、毫無逼迫的「虛假安全感」中保持屬靈的警醒？</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ──────────────── DAY 8: 非拉鐵非與老底嘉 ──────────────── -->
+    <div id="day-8" class="day-section">
+      <div class="meta-card">
+        <h2 class="meta-title">Day 8：啟示錄七教會（非拉鐵非與老底嘉）—— 堅固的柱子與溫水的悲劇</h2>
+        <div class="meta-grid">
+          <div class="meta-item"><strong>主要考查景點</strong>非拉鐵非古大教堂柱子遺址、老底嘉大型體育場、引水管道遺址、希拉波立（棉堡）溫泉源頭</div>
+          <div class="meta-item"><strong>地理與歷史坐標</strong>呂底亞與弗呂家交界。非拉鐵非為火山地震頻發地帶；老底嘉為富有金融中心、眼藥產地、黑羊毛出口港。</div>
+          <div class="meta-item"><strong>對應書卷與經文</strong>啟 3:7-22</div>
+        </div>
+      </div>
+
+      <div class="section-subtitle" id="d8-sec1">1. 歷史社會處境：頻繁地震的恐慌與極致的財富傲慢</div>
+      <div class="academic-card">
+        <span class="academic-badge">The Physical Environment</span>
+        <h3>非拉鐵非的逃難焦慮與老底嘉拒絕羅馬重建貸款的底氣</h3>
+        <p>Wright 指出，**非拉鐵非（Philadelphia）**因處於卡塔凱考梅尼（Katakekaumene）火山地震帶上，自公元 17 年大地震後便餘震不斷，居民常年生活在恐慌中，隨時準備棄城逃往郊區空曠地避難。而**老底嘉（Laodicea）**則是全帝國最富庶、傲慢的金融帝國中心。公元 60 年，當整座城市被大地震摧毀時，老底嘉元老院竟然驕傲地**拒絕了羅馬元老院提供的國家賑災重建貸款**。老底嘉人宣稱：「我們自己足夠富有，不需要凱撒的一分錢（富足，已經發了財，一樣都不缺，啟 3:17）！」他們自費重建了極其奢華的劇場、體育場與公共浴池。該地著名的醫學中心出土了「弗呂家眼藥粉（Phrygian powder）」，且該地出口全帝國最名貴的黑亮羊毛。然而這座富庶的城市卻有一個致命的阿基里斯之踵——**水源完全依賴外來引水管道**。它從北邊的希拉波立（Hierapolis）引入熱溫泉，從南邊的歌羅西（Colossae）引入冷泉。當水流經過漫長的石灰岩引水管道到達老底嘉時，已經變成了既不能飲用又無法療癒的「不冷不熱、含有礦物質垢的溫水」，飲之令人作嘔。</p>
+      </div>
+
+      <div class="section-subtitle" id="d8-sec2">2. 現場完整聖經經文選段</div>
+      <div class="verse-card">
+        <div class="verse-title">啟示錄 3:7-22 <span>和合本 (給非拉鐵非與老底嘉教會的信)</span></div>
+        <p class="verse-text">
+          <span class="verse-num">7</span>你要寫信給非拉鐵非教會的使者，說：那聖潔、真實、拿著大衛的鑰匙、開了就無人能關、關了就無人能開的，說：<span class="verse-num">8</span>我知道你的行為，你略有一點力量，也曾遵守我的道，沒有棄絕我的名。看哪，我在你面前給你一個敞開的門，是無人能關的。<span class="verse-num">9</span>那撒但一會的，自稱是猶太人，其實不是猶太人，乃是說謊話的，我要使他們來，在你腳前下拜，也使他們知道我是已經愛你了。<span class="verse-num">10</span>你既遵守我忍耐的道，我必在普天下人受試煉的時候，保守你免去你的試煉。<span class="verse-num">11</span>我必快來，你要持守你所有的，免得人奪去你的冠冕。<span class="verse-num">12</span>得勝的，我要作在我神殿中作柱子，他也必不再從那裡出去。我又要將我神的名和我神城的名（這城就是從天上、從我神那裡降下來的新耶路撒冷），並我的新名，都寫在他上面。<span class="verse-num">13</span>凡有耳的，就應當聽！聖靈向眾教會所說的話。<br>
+          <span class="verse-num">14</span>你要寫信給老底嘉教會的使者，說：那為阿們的，為誠信真實見證的，在神創造萬物之上為元首的，說：<span class="verse-num">15</span>我知道你的行為，你也不冷也不熱；我巴不得你或冷或熱。<span class="verse-num">16</span>你既如溫水，也不冷也不熱，所以我必從我口中把你吐出去。<span class="verse-num">17</span>你說：我是富足，已經發了財，一樣都不缺；卻不知道你是那困苦、可憐、貧窮、瞎眼、赤身的。<span class="verse-num">18</span>我勸你向我買火煉的金子，叫你富足；又買白衣穿上，叫你赤身的羞恥不露出來；又買眼藥擦你的眼睛，使你能看見。<span class="verse-num">19</span>凡我所愛的，我就責備管教他；所以你要發熱心，也要悔改。<span class="verse-num">20</span>看哪，我站在門外叩門，若有聽見我聲音就開門的，我要進到他那裡去，我與他，他與我一同坐席。<span class="verse-num">21</span>得勝的，我要賜他在我寶座上與我同坐，就如我得了勝，在我父的寶座上與他同坐一樣。<span class="verse-num">22</span>凡有耳的，就應當聽！聖靈向眾教會所說的話。
+        </p>
+      </div>
+
+      <div class="section-subtitle" id="d8-sec3">3. 新約世界之神學思想對話</div>
+      <div class="academic-card">
+        <span class="academic-badge">Theological Transformation</span>
+        <h3>永不動搖的聖殿柱子與自我滿足的屬靈赤身</h3>
+        <p>約翰精準地使用了這兩座城市的地理隱喻。對於生活在地震恐慌中隨時需要「逃亡出去」的非拉鐵非基督徒，主應許：「得勝的，我要叫他在我神殿中**作柱子，他也必不再從那裡出去**」（啟 3:12）！這帶給了他們在極度動盪不安全環境中永恆的安息感。而對於富甲天下、引以為傲的老底嘉，基督給予了最無情的解構：你們在金融上富有，在屬靈上卻是「貧窮」的，需要向我購買經受苦難考驗的「火煉金子」；你們引以為傲的黑羊毛服飾在神眼中不過是「赤身羞恥」，唯有「天國白衣」才能遮蓋；你們生產名揚帝國的眼藥，在靈性上卻是徹底的「瞎眼」，急需天國的眼藥來開導心靈。老底嘉教會自以為「一樣都不缺」，卻不知不覺中把生命的真元首基督拒之門外，讓主只能在門外孤獨叩門（啟 3:20）。</p>
+      </div>
+
+      <div class="reflection-box">
+        <h4>✦ 神學反思與討論 questions</h4>
+        <ul class="discussion-list">
+          <li>看著老底嘉那粗大、鈣化沉澱、佈滿石灰水垢的古引水管道遺址，我們是否也正處於「不冷不熱」的溫水狀態？我們既失去了希拉波立熱泉的醫治與屬靈熱情，又失去了歌羅西冷泉的清涼與甦醒人心功能？</li>
+          <li>老底嘉「拒絕凱撒震災重建款」的驕傲自豪，是否正反映了當代中產階級、富裕知識分子信徒的屬靈危機——因為生活無憂、物質充裕，而對上帝失去了絕對倚靠的飢渴與敬畏？</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 快速跳轉浮動按鈕 (FAB) -->
+  <div id="quick-jump-fab">
+    <div class="fab-main" id="fab-trigger" onclick="toggleFab()">✦</div>
+    <div class="fab-menu" id="fab-menu-list">
+      <!-- JS 動態生成當前標籤頁內的跳轉連結 -->
+    </div>
+  </div>
+
+  <script>
+    let activeTab = 1;
+    let fabOpen = false;
+
+    // 行程日期與實際日曆關聯（設定為：Day 1 剛好對應 2026-06-08 當天）
+    const scheduleDates = {
+      '2026-06-08': 1,
+      '2026-06-09': 2,
+      '2026-06-10': 3,
+      '2026-06-11': 4,
+      '2026-06-12': 5,
+      '2026-06-13': 6,
+      '2026-06-14': 7,
+      '2026-06-15': 8
+    };
+
+    // 頁面加載時自動偵測日期，精準跳轉
+    window.onload = function() {
+      const today = new Date();
+      const localDateStr = today.getFullYear() + '-' + 
+                           String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                           String(today.getDate()).padStart(2, '0');
+      
+      if (scheduleDates[localDateStr]) {
+        showTab(scheduleDates[localDateStr]);
+      } else {
+        showTab(1); // 默認第一天
+      }
+    };
+
+    // 切換天數標籤頁
+    function showTab(dayNum) {
+      activeTab = dayNum;
+      
+      // 更新 Tab 按鈕樣式
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach((tab, index) => {
+        if (index === dayNum - 1) {
+          tab.classList.add('active');
+          // 滾動導覽列使當前 Tab 置中
+          tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      // 隱藏所有天數的 Section
+      const sections = document.querySelectorAll('.day-section');
+      sections.forEach((sec, index) => {
+        if (index === dayNum - 1) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+
+      // 關閉 FAB
+      closeFab();
+      
+      // 滾動回頁面頂部
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 控制 FAB 的展開與收合
+    function toggleFab() {
+      fabOpen = !fabOpen;
+      const trigger = document.getElementById('fab-trigger');
+      const menu = document.getElementById('fab-menu-list');
+
+      if (fabOpen) {
+        trigger.classList.add('open');
+        trigger.textContent = '+';
+        buildFabMenu();
+        menu.classList.add('visible');
+      } else {
+        closeFab();
+      }
+    }
+
+    function closeFab() {
+      fabOpen = false;
+      const trigger = document.getElementById('fab-trigger');
+      const menu = document.getElementById('fab-menu-list');
+      trigger.classList.remove('open');
+      trigger.textContent = '✦';
+      menu.classList.remove('visible');
+    }
+
+    // 動態根據當前 Active Day 生成內錨點導航
+    function buildFabMenu() {
+      const menu = document.getElementById('fab-menu-list');
+      menu.innerHTML = ''; // 清空
+
+      const sections = [
+        { id: `d${activeTab}-sec1`, text: '1. 歷史社會背景' },
+        { id: `d${activeTab}-sec2`, text: '2. 現場聖經經文' },
+        { id: `d${activeTab}-sec3`, text: '3. 學術神學對話' }
+      ];
+
+      sections.forEach(sec => {
+        const a = document.createElement('a');
+        a.href = `#${sec.id}`;
+        a.className = 'fab-item';
+        a.textContent = sec.text;
+        a.onclick = function(e) {
+          e.preventDefault();
+          const target = document.getElementById(sec.id);
+          if (target) {
+            // 扣除 Sticky 導覽列的高度
+            const yOffset = -130; 
+            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+          closeFab();
+        };
+        menu.appendChild(a);
+      });
+    }
+
+    // 全域模糊搜尋邏輯
+    function performSearch() {
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+      const sections = document.querySelectorAll('.day-section');
+      const noResults = document.getElementById('no-results');
+      let foundAny = false;
+
+      if (!query) {
+        // 如果搜尋為空，還原顯示當前活躍的 Tab
+        showTab(activeTab);
+        noResults.style.display = 'none';
+        return;
+      }
+
+      sections.forEach((sec, index) => {
+        const textContent = sec.textContent.toLowerCase();
+        if (textContent.includes(query)) {
+          sec.classList.add('active'); // 顯示含有關鍵字的章節
+          foundAny = true;
+          
+          // 自動點亮對應的導航標籤
+          const tabs = document.querySelectorAll('.tab-btn');
+          tabs[index].classList.add('active');
+        } else {
+          sec.classList.remove('active');
+          const tabs = document.querySelectorAll('.tab-btn');
+          tabs[index].classList.remove('active');
+        }
+      });
+
+      if (foundAny) {
+        noResults.style.display = 'none';
+        window.scrollTo({ top: 180, behavior: 'smooth' });
+      } else {
+        noResults.style.display = 'block';
+        // 隱藏所有
+        sections.forEach(sec => sec.classList.remove('active'));
+      }
+    }
+
+    // 支持 Enter 鍵搜尋
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+  </script>
+</body>
+</html>
+
+```
