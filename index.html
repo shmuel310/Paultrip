@@ -825,6 +825,271 @@ hr {
   vertical-align: middle;
 }
 
+
+/* ── Inner Tab Bar (考察資料 / 講章) ── */
+.inner-tabs {
+  display: flex;
+  background: var(--mid);
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: var(--header-h);
+  z-index: 500;
+}
+.inner-tab-btn {
+  flex: 1;
+  padding: 11px 8px;
+  background: none;
+  border: none;
+  color: rgba(245,237,216,0.6);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  border-bottom: 3px solid transparent;
+  letter-spacing: 0.04em;
+}
+.inner-tab-btn.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+.inner-tab-btn:hover:not(.active) {
+  color: var(--parchment);
+  background: rgba(255,255,255,0.04);
+}
+.inner-tab-btn .tab-icon { margin-right: 5px; }
+
+/* ── Inner Pane ── */
+.inner-pane { display: none; }
+.inner-pane.active { display: block; }
+
+/* ── Sermon Styles ── */
+.sermon-hero {
+  background: linear-gradient(135deg, #0d1f3c 0%, #1a3a5c 60%, #2a5070 100%);
+  padding: 28px 20px 22px;
+  border-bottom: 3px solid #4a8ab5;
+}
+.sermon-hero-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: #7ab8d8;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.sermon-hero-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(16px, 4vw, 22px);
+  color: #e8f4ff;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.sermon-hero-sub {
+  font-size: 12px;
+  color: rgba(200,230,255,0.7);
+  margin-bottom: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.sermon-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.sermon-meta-pill {
+  font-size: 11px;
+  color: #7ab8d8;
+  background: rgba(74,138,181,0.15);
+  border: 1px solid rgba(74,138,181,0.3);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.sermon-body {
+  padding: 0 16px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.sermon-body h1.sermon-h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(16px, 3.5vw, 20px);
+  color: #1a3a5c;
+  margin: 28px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #4a8ab5;
+  line-height: 1.45;
+}
+.sermon-body h2.sermon-h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(14px, 3vw, 17px);
+  color: #1a3a5c;
+  margin: 22px 0 10px;
+  padding-left: 12px;
+  border-left: 4px solid #4a8ab5;
+  line-height: 1.5;
+}
+.sermon-body h3.sermon-h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(13px, 2.8vw, 15px);
+  color: #2a5070;
+  margin: 18px 0 8px;
+  font-weight: 600;
+}
+.sermon-body h4.sermon-h4 {
+  font-size: 13px;
+  color: #2a5070;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  font-style: italic;
+  font-family: 'Noto Serif TC', serif;
+}
+.sermon-body p {
+  font-size: clamp(14px, 3.2vw, 15px);
+  line-height: 2.0;
+  color: var(--text);
+  margin-bottom: 14px;
+  text-align: justify;
+}
+.sermon-body strong { color: #1a2e4a; }
+.sermon-body em { color: #2a5070; font-style: italic; }
+.sermon-body ul, .sermon-body ol {
+  padding-left: 22px;
+  margin: 10px 0 14px;
+}
+.sermon-body li {
+  font-size: clamp(13px, 3vw, 15px);
+  line-height: 1.85;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+blockquote.sermon-prayer {
+  background: linear-gradient(135deg, rgba(26,58,92,0.07), rgba(74,138,181,0.06));
+  border: 1px solid rgba(74,138,181,0.2);
+  border-left: 5px solid #4a8ab5;
+  padding: 16px 18px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: clamp(13px, 3vw, 15px);
+  line-height: 1.9;
+  color: #1a3a5c;
+}
+blockquote.sermon-prayer::before {
+  content: '🙏';
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-style: normal;
+}
+.sermon-no-content {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.sermon-no-content .no-sermon-icon { font-size: 48px; margin-bottom: 16px; }
+.sermon-no-content p { font-size: 14px; line-height: 1.8; }
+
+/* ── Update Popup ── */
+#update-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.65);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#update-popup.show { display: flex; }
+#update-popup-box {
+  background: var(--parchment);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  max-width: 420px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+#update-popup-header {
+  background: linear-gradient(135deg, var(--deep), var(--mid));
+  padding: 20px 22px 16px;
+  border-bottom: 2px solid var(--gold);
+}
+#update-popup-header h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+#update-popup-header p {
+  font-size: 11px;
+  color: var(--parchment-dark);
+  opacity: 0.75;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+#update-popup-body {
+  padding: 20px 22px;
+}
+.update-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--parchment-dark);
+}
+.update-feature:last-child { border-bottom: none; }
+.update-feature-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--deep), var(--mid));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  border: 1px solid rgba(201,168,76,0.3);
+}
+.update-feature-text h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.update-feature-text p {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.6;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+#update-popup-footer {
+  padding: 0 22px 20px;
+}
+#update-close-btn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, var(--deep), var(--mid));
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  color: var(--gold-light);
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#update-close-btn:hover { background: var(--mid); }
+
 </style>
 </head>
 <body>
@@ -935,7 +1200,6 @@ hr {
 <!-- Main Content -->
 <main id="main">
 <section class="tab-panel active" id="tab-0"0 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 1 · 6月8日</div>
   <span class="day-hero-emoji">🌊</span>
@@ -944,7 +1208,16 @@ hr {
   <div class="day-hero-verse">「願賜平安的主隨時隨事親自給你們平安。願主與你們眾人同在。」（帖後 3:16）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-0">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(0,'guide')" id="guide-btn-0">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(0,'sermon')" id="sermon-btn-0">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-0">
+    <div class="article-content">
 
 <h1>📅 6月8日 考察指引：哥林多地峽與使徒的眼淚</h1>
 
@@ -1338,10 +1611,130 @@ hr {
 
 <p><strong>禱告</strong>：<em>「天父，感謝祢將我遷入祢愛子的國度。求祢賜我智慧，使我在地上作一個守法、追求公義的公民，但時刻不忘我天上國民（Politeuma）的榮耀身份。當世俗的偶像要求我低頭時，賜我使徒般的勇氣，單單向祢俯伏敬拜。阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-0">
+  <div class="sermon-hero">
+    <div class="sermon-hero-label">✦ 現場講章 · Sermon</div>
+    <div class="sermon-hero-title">在碎石堆中宣告無能的權能</div>
+    <div class="sermon-hero-sub">哥林多考古現場的顛覆性宣講</div>
+    <div class="sermon-hero-meta">
+      <span class="sermon-meta-pill">📍 希臘哥林多古城遺址 · Agora 廣場中央</span>
+      <span class="sermon-meta-pill">📖 哥林多後書 4:7-15；哥林多前書 1:26-31</span>
+    </div>
+  </div>
+  <div class="sermon-body">
+    <h1 class="sermon-h1">在碎石堆中宣告無能的權能：哥林多考古現場的顛覆性宣講</h1>
+<p><strong>宣講現場：</strong> 希臘哥林多古城遺址（Ancient Corinth, Agora 遺址廣場中央，背景為阿波羅神廟殘柱與裁判台 Bema）</p>
+<p><strong>宣講經文：</strong> 哥林多後書 4:7-15，2:14-16；哥林多前書 1:26-31，9:24-27</p>
+<h2 class="sermon-h2">導言：我們今天來到哥林多，到底是在尋求什麼？</h2>
+<p>弟兄姊妹，我們今天一同站在這片斷瓦殘垣的哥林多古城遺址當中。</p>
+<p>當我們環顧四周，看著那些高聳的阿波羅神廟殘柱，腳下踩著第一世紀羅馬殖民地的鋪石路面，我們的心中在期待著什麼？</p>
+<p>在今天的教會文化裡，我們非常流行一種「尋根」或「朝聖」的熱潮。我們大老遠從世界各地坐飛機來到這裡，心中往往帶著一種對「偉大使徒」的浪漫幻想。我們希望在這片廢墟中，尋找到昔日保羅宣教「成功」的足跡；我們希望透過觸摸這些古老的石頭，來吸取一點「屬靈的能力」，好讓我們的教會、我們的事奉，也能像昔日保羅那樣「影響世界」、「改變社會」。</p>
+<p>但我必須一開始就對大家澆一盆冷水：如果你今天來到哥林多，是為了尋找一種帶來成功、權能與榮耀的事奉模式，那麼你完全讀錯了保羅寫給哥林多教會的書信。</p>
+<p>保羅寫作《哥林多後書》的時候，不是在他事奉的最高峰，而是在他一生中最屈辱、最無能、最痛苦的時刻。那時，他建立的哥林多教會正經歷嚴重的分裂，一群自稱擁有屬靈恩賜、口才、神蹟能力與顯赫薦信的「超級使徒」（Super Apostles），正在這片廣場上公開質疑保羅的使徒權柄。他們嘲笑保羅「氣貌不揚，言語粗俗」（林後 10:10），他們鄙視保羅的軟弱與貧窮。</p>
+<p>就在這片土地上，保羅面對這群追求「成功學」與「權能」的哥林多信徒，寫下了一段在當時文化看來極其顛覆性的宣告：</p>
+<p>「我們有這寶貝放在瓦器裡，要顯明這莫大的能力是出於神，不是出於我們。」（林後 4:7）</p>
+<p>今天，我們就站在這個昔日保羅被審判、被質疑的哥林多考古現場，重新解構這個羅馬帝國的權力系統，並進入保羅那「顛覆現實」的十架福音。</p>
+<h2 class="sermon-h2">一、 現場起點：在阿波羅神廟與裁判台（Bema）之間的虛假現實</h2>
+<p>請大家抬頭看看我們身後那座屹立不倒、建於主前六世紀的阿波羅神廟（Temple of Apollo）。</p>
+<p>在保羅的時代，這座神廟是哥林多地標性的建築，它高高在上，象徵著古典希臘的「智慧」與宗教權威。而我們現在站立的這片平地，就是古城的 Agora（市場/公共廣場）。在我們右手邊不遠處，就是羅馬帝國司法權力的具體呈現——裁判台（Bema）。根據使徒行傳第十八章記載，哥林多的猶太人就在這裡，將保羅拉到羅馬方伯迦流（Gallio）的審判席前（徒 18:12-17）。</p>
+<p>對於第一世紀重建後的哥林多而言，這座城市是一個不折不扣的「羅馬殖民地」（Roman Colony）。這裡充滿了羅馬退伍軍人與獲得自由的奴隸（Freedmen）。這是一個完全沒有歷史包袱的城市，也是一個極其儲備「自我奮鬥」（Self-made）、「社會階級上升」（Social Mobility）與「競爭力」的商業大都市。</p>
+<p>在這樣一個新興的移民城市裡，每個人都在這片廣場上推銷自己。這是一個以「表現」來定義「身份」的社會。</p>
+<ul>
+<li>你有多大的影響力？  </li>
+<li>你認識哪些高官政要？  </li>
+<li>你擁有多少資產？  </li>
+<li>你的口才是否能征服大眾？</li>
+</ul>
+<p>這就是哥林多人眼中的「真實現實」。在這種現實中，「智慧」是用來控制他人的工具，「能力」是用來壓榨弱者的資本。</p>
+<p>然而，當保羅站在這片充滿羅馬權能與希臘智慧的廣場上，他卻說：這世界的神弄瞎了不信之人的心眼（林後 4:4），使他們看不見那真正的現實。保羅引用了舊約先知書的審判神學，指出這世界的智慧在神眼中不過是愚拙（林前 1:19-20；參賽 29:14）。</p>
+<p>我們今天站在這裡，是否也被這世界的「成功敘事」弄瞎了眼？當我們看到巨大的神廟、巍峨的羅馬建築時，我們心中羨慕的是帝國的權能，還是那隱藏在十架背後、看似無能的上帝？</p>
+<h2 class="sermon-h2">二、 考古透視：以拉都鋪石碑（Erastus Inscription）與施恩者體系的顛覆</h2>
+<p>為了更深明白哥林多社會的運作邏輯，我們必須去看看遺址中發現的那塊著名石碑——以拉都鋪石碑（Erastus Inscription）。</p>
+<p>這塊位於劇院附近的鋪路石碑上，用拉丁文刻著一行字：ERASTVS PRO AEDILIT\[ATE\] S P STRAVIT，意思就是：「以拉都為了回報他被選為市政官（Aedile），自掏腰包鋪設了這條路。」</p>
+<p>這塊石碑向我們展示了羅馬帝國核心的社會機制：施恩與回報體系（Patronage/Euergetism）。</p>
+<p>在當時的希羅社會，有錢人（Patron/Benefactor）透過捐獻公共建築、鋪路、建廟或舉辦體育賽事，來博取名聲、榮譽（Glory）與社會地位。受惠的平民與城市則必須以「感恩」（Eucharistia）和「效忠」作為回報。這是一種建立在利益交易之上的社會契約。</p>
+<p>在這種「施恩者體系」下，人與人之間的關係是兩極化的：施恩者高高在上，受恩者卑微屈從。</p>
+<p>不幸的是，這種羅馬殖民地的世俗價值觀，在第一世紀已經深度滲透進了哥林多教會。那些「超級使徒」來到哥林多，就是用這套「施恩者」的邏輯來運作。他們誇耀自己的薦信（林後 3:1），展示自己的屬靈特權，試圖在教會內建立自己的勢力範圍，將信徒變成他們的「客戶」（Clients）。他們口裡傳講耶穌，行為卻是在複製羅馬帝國的權力結構。</p>
+<p>保羅在《哥林多後書》第八至九章中，對這套「施恩者體系」進行了驚天動地的神學顛覆。</p>
+<p>保羅在處理耶路撒冷籌款事宜時，他徹底拆毀了施恩者與受恩者之間的交易循環。保羅宣告：真正的「施恩者」從來不是捐錢的人，而是神自己。</p>
+<p>「你們知道我們主耶穌基督的恩典：他本來富足，卻為你們成了貧窮，叫你們因他的貧窮，可以成為富足。」（林後 8:9）</p>
+<p>在神的國度裡，恩典（Charis）不是一種用來購買權力與榮譽的資源。真正的恩典，是基督主動降卑、成了貧窮的自我犧牲。在籌款的過程中，捐款的人並不是「大施恩者」，他們僅僅是神恩典的「中介」（Agents）。這個恩典的循環，最終不是指向捐款者的名聲，而是指向窮人的感恩與對上帝的敬拜（Doxology）（林後 9:11-13）。</p>
+<p>我們今天在教會的事奉中，是否也在玩這種「以拉都鋪石碑」的遊戲？我們是否在用自己的奉獻、自己的事工、自己的成就，在教會的「廣場」上為自己刻下無形的碑文，好博取人的稱讚與權力？保羅在哥林多碎石堆中的宣講挑戰我們：你必須放下「施恩者」的姿態，甘願成為那為基督而成了貧窮的僕人。</p>
+<h2 class="sermon-h2">三、 經文重構：瓦器中的寶貝，還是哥林多青銅？</h2>
+<p>現在，讓我們回到《哥林多後書》第四章七節的中心意象：「我們有這寶貝放在瓦器裡。」</p>
+<p>在考古學上，古哥林多有兩樣東西聞名於世：</p>
+<ol>
+<li><strong>哥林多青銅（Corinthian Bronze）：</strong> 這是一種極其昂貴、珍稀的金屬合金，在第一世紀的羅馬帝國被視為奢侈品與財富的終極象徵。  </li>
+<li><strong>粘土與瓦片（Terracotta/Ostraka）：</strong> 哥林多也是一個巨大的陶器生產中心。在這裡的考古發掘中，出土了無數粗糙、廉價、日常使用的普通黏土罐（即保羅所說的「瓦器」 ostrakinos）。</li>
+</ol>
+<p>當那些「超級使徒」和哥林多信徒來到這片廣場上時，他們追求的是像「哥林多青銅」那樣閃耀、堅硬、昂貴、不朽的事奉。他們希望自己的生命是精緻的青銅器，走出來能贏得萬民的喝采。</p>
+<p>但保羅卻給了他們一個震撼的對比。他說：傳統的事奉，從來不是「青銅的事奉」，而是「瓦器的事奉」。</p>
+<p>「瓦器」有三個特點：</p>
+<p>第一，它極其廉價，隨處可見，根本不值錢。</p>
+<p>第二，它極易破碎，一旦摔在地上，就成了毫無價值的碎片（Ostraka）。</p>
+<p>第三，它是可以隨時被替代的。</p>
+<p>保羅說，這就是我，這就是使徒的事奉。</p>
+<p>「我們四面受敵，卻不被困住；心裡作難，卻不至失望；遭逼迫，卻不被丟棄；打倒了，卻不至死亡。身上常帶著耶穌的死，使耶穌的生也顯明在我們身上。」（林後 4:8-10）</p>
+<p>請注意保羅的邏輯。在世俗的眼光中，一個成功的事奉應該是「不受敵、不作難、不遭逼迫、不被打倒」的。但保羅卻說，我們的生命經歷，就是一個不斷被破碎、被擊打的「瓦器」過程。</p>
+<p>為什麼？</p>
+<p><strong>「要顯明這莫大的能力是出於神，不是出於我們。」（林後 4:7b）</strong></p>
+<p>這不是一個簡單的倫理教導，要我們學會謙卑。這是一個根本的主權宣告。如果器皿本身是閃閃發光的哥林多青銅，那麼當人們看到這件器皿時，他們的焦點只會停留在器皿的美麗與價值上。只有當器皿是粗糙、甚至帶著裂痕的「瓦器」時，人們才會驚歎：原來裡面裝著無價的寶貝！</p>
+<p>這個「寶貝」是什麼？就是耶穌基督榮耀福音的光（林後 4:4-6）。</p>
+<p>我們今天的事奉，是不是常常花費了所有的精力和資源，去把「瓦器」鍍上金、鍍上青銅，試圖讓器皿本身看起來強大、完美、無懈可擊？我們不允許自己失敗，不允許教會展現出軟弱，我們試圖用嚴密的組織、龐大的預算、精湛的口才來向世界證明我們「有能力」。</p>
+<p>然而，保羅在哥林多的廢墟中警告我們：當我們試圖將「瓦器」偽裝成「青銅」時，我們就是在搶奪上帝的榮耀。上帝無能中的能力（Power in Inability），恰恰是透過我們這群承認自己無能、破碎的瓦器，才能最真實地宣洩出來。</p>
+<h2 class="sermon-h2">四、 跨文本解讀：醫神神廟（Asklepieion）的陶土肢體與基督身體的重構</h2>
+<p>在哥林多城的北端遺址，考古學家發掘出了一座著名的醫神阿斯克勒庇俄斯神廟（Asklepieion）。</p>
+<p>在這座神廟的遺址中，考古學家發現了成百上千個用陶土（terracotta）製作的人體器官模型：有手、腳、眼睛、耳朵、甚至是內臟。在希羅宗教文化中，當一個人生病（例如手部殘疾）來到醫神廟求醫，他如果痊癒了，或者為了許願，就會買一個陶土做的「手」的模型奉獻給神廟，掛在牆上，作為神蹟治癒的見證。</p>
+<p>這群哥林多信徒每天看著醫神廟牆上那些「陶土肢體」，他們的腦海中植入了一種世俗的「身體觀」：身體是由各個獨立、競爭、試圖證明自己健康與榮耀的「部分」所組成的。在這片廣場上，強壯的肢體（有口才的、有知識的、有屬靈恩賜的）被尊崇；而軟弱、殘疾、不體面的肢體，則被遺棄。</p>
+<p>保羅在《哥林多前書》第十二章論到「基督的身體」時，他徹底顛覆了這種醫神廟式的肢體觀。</p>
+<p>保羅寫道：</p>
+<p>「身上肢體，我們看為不體面的，越發給它加上體面；不俊美的，越發得著俊美。我們俊美的肢體，自然用不著它；但神配搭這身子，把加倍的體面給那有缺欠的肢體，免得身上分門別類，總要肢體彼此相顧。」（林前 12:23-25）</p>
+<p>在哥林多這個崇尚強者、排斥弱者的社會裡，保羅提出了一個驚人的「聖潔與身體神學」：真正彰顯神聖潔與榮耀的群體，不是一個由精英、施恩者、強者組成的排他性俱樂部；而是一個願意與最軟弱、最不體面的肢體「同負一軛」、一同吃飯、彼此相顧的反主流群體（Counter-cultural Community）。</p>
+<p>那些被世界視為無能、軟弱的肢體，在基督的身體裡，不是被隱藏、被醫治後才配得接納的廢物；他們此時此刻，就是上帝榮耀彰顯的樞紐。</p>
+<p>這再次指向了保羅「垂直維度」的聖潔觀：真正的聖潔與能力，不是建立在水平維度的排他性與自我炫耀上，而是建立在被造物對創造主徹底的降服與無能的承認上。</p>
+<h2 class="sermon-h2">五、 終極對比：地峽運動會的「桂冠」與羅馬凱旋式中的「死囚」</h2>
+<p>弟兄姊妹，我們今天站在這片曾經繁華、如今卻只剩下碎石的哥林多遺址中，我們必須回答一個關於我們事奉與生命定位的終極問題。</p>
+<p>當我們面對世界政治經濟的混亂、面對社會結構的轉變、面對自身生命和事奉的無能時，我們往往會像哥林多信徒一樣，呼求「復興」，呼求「能力的彰顯」。</p>
+<p>但是，我們心中所渴望的，到底是哪一種能力的彰顯？</p>
+<p>在當時哥林多人的生活記憶中，有兩個極其強烈的視覺形象，天天在塑造著他們的價值觀。保羅正是借用了這兩個本地的現象，來徹底顛覆我們的信仰模式。</p>
+<h3 class="sermon-h3">1\. 虛假的得勝：地峽運動會的「腐壞桂冠」</h3>
+<p>在哥林多城東郊，舉辦著古代希臘世界第二大體育盛會——<strong>地峽運動會（Isthmian Games）</strong>。</p>
+<p>哥林多信徒每天都看著那些運動員為了爭奪象徵終極榮耀的「桂冠」而進行殘酷的訓練。勝出者會在這片 Agora 廣場上接受萬民的歡呼，名字會被刻在石碑上，得著世人的崇拜。</p>
+<p>保羅在《哥林多前書》第九章提到：</p>
+<p>「凡較力爭勝的，諸事都有節制，他們不過是要得能壞的冠冕；我們卻是要得不能壞的冠冕。」（林前 9:25）</p>
+<p>在保羅的時代，地峽運動會得勝者的冠冕，是用松樹葉、甚至是枯乾的芹菜葉（Withered Celery）編織而成的。這是一個極具諷刺意味的考古隱喻：世人付上一生的代價，在這片市場上竭力爭奪、互相踐踏、自我擴張，最終得到的，不過是一頂「幾天內就會枯乾腐爛的芹菜冠冕」。</p>
+<p>那些來到哥林多教會的「超級使徒」，他們追求的正是這種「地峽運動會式」的得勝。他們要作贏家，要在講台上較力爭勝，要奪取人眼中的冠冕。但保羅說：這種建立在自我能力、競爭與排他性之上的榮耀，在神的末世審判前，不過是一座正在腐爛的廢墟。</p>
+<h3 class="sermon-h3">2\. 真實的得勝：羅馬凱旋式中的「遊街死囚」</h3>
+<p>保羅給了我們第二個本地形象。作為羅馬殖民地，哥林多經常見證羅馬將軍的<strong>凱旋式（Roman Triumph, thriambos）</strong>。</p>
+<p>在凱旋大典中，羅馬將軍穿著紫袍，坐在戰車上接受整座城市的狂熱崇拜。而在將軍戰車後面、被鐵鏈鎖著、在鋪石路面上蹣跚前行的，是一大群在戰爭中被擊敗的戰俘（Captives）。</p>
+<p>這群戰俘在凱旋行列中，是作為將軍「戰功」的活證據而被公開展示的。他們的終點不是榮耀的聖殿，而是羅馬的監獄與斗獸場，他們是被「定死罪」的人（doomed to death）。在遊行的隊伍中，祭司會燃燒香料，這香氣對得勝者而言，是勝利與生命的香氣；但對這群步向死亡的戰俘而言，這卻是死亡與處決的香氣。</p>
+<p>就在這個極其屈辱、殘忍的背景下，保羅在《哥林多後書》第二章，寫下了新約聖經中最具顛覆性的神學宣告：</p>
+<p>「感謝神！常率領我們在基督裡誇勝，並藉著我們在各處顯揚那因認識基督而有的香氣。」（林後 2:14）</p>
+<p>在希臘原文中，θριαμβεύοντι ἡμᾶς（thriambeuonti hēmas）的字面意思不是「帶領我們一同得勝」，而是「將我們作為俘虜，在凱旋行列中游街示眾」。</p>
+<p>保羅在說什麼？</p>
+<p>那些「超級使徒」自比為戰車上榮耀的將軍、地峽運動會的得勝者。但保羅卻說：我，作為使徒，在這片哥林多的廣場上，是被上帝擊敗的「戰俘」。上帝才是那位得勝的將軍，而我們是被鎖在祂戰車後面、被帶向死亡的囚犯。</p>
+<p>我們在各處傳福音，就如同在這場凱旋式中散發香氣：</p>
+<p>「在這等人，就作了死的香氣叫他死；在那等人，就作了活的香氣叫他活。這事誰能當得起呢？」（林後 2:16）</p>
+<p>這是何等惡毒、卻又何等震撼的神學！</p>
+<p>上帝的福音，從來不是給我們一頂「地峽運動會的冠軍獎盃」，好讓我們在世人面前炫耀我們的能力。上帝的福音，是藉著將我們這群「瓦器」打碎，將我們這群「戰俘」在世人面前暴露出來，用我們的無能、我們的軟弱、我們的「死」，來向整個羅馬帝國宣告：</p>
+<p>上帝才是歷史唯一的得勝者。</p>
+<h2 class="sermon-h2">結語：帶着誰的印記離開哥林多？</h2>
+<p>弟兄姊妹，</p>
+<p>不要再試圖在這片遺址中尋找保羅「成功」的幻影了。</p>
+<p>保羅不是這座城市的「施恩者」，他不是地峽運動會上頭戴桂冠的贏家。他在這片 Agora 廣場上，是被鐵鏈鎖著、步向十字架的上帝的俘虜。</p>
+<p>當我們今天離開哥林多，踏上我們各自的事奉與生活崗位時，我們面臨最終的選擇：</p>
+<p>你是在追求一頂「地峽運動會」那幾天就會枯乾的芹菜冠冕，在教會和世界中較力爭勝？還是甘願被鎖在基督的戰車後，在世人面前展現你的軟弱、你的無能，好讓上帝那莫大的能力得以彰顯？</p>
+<p>願我們身上帶着的，不是這世界所崇尚的「哥林多青銅」的虛假光芒，而是如保羅一樣，在無能與破碎中，散發出那顛覆世界的十架香氣。</p>
+<p>我們同心禱告。</p>
+<blockquote class="sermon-prayer">（結束禱告）</blockquote>
+<p>神阿，求祢拯救我們脫離這個世代的「成功學」與「權力崇拜」。當我們今天站在這片哥林多的碎石堆中，祢的話語如利刃般剖開我們的自私與虛榮。我們常常想做高高在上的施恩者，想做運動會上的贏家，卻拒絕成為祢呼召我們成為的瓦器與俘虜。</p>
+<p>主阿，求祢賜給我們勇氣，去擁抱那看似無能的十架。叫我們深信，混亂的世界不能奪去祢的主權，我們的無能恰恰是祢恩典動工的起點。願祢的教會不再效法羅馬帝國的權力結構，而是成為真正彼此相顧、彰顯十架大能的基督身體。</p>
+<p>奉主耶穌基督那顛覆現實、誠信真實的名祈禱。阿們。</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-1"1 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 2 · 6月9日</div>
   <span class="day-hero-emoji">🏛</span>
@@ -1350,7 +1743,16 @@ hr {
   <div class="day-hero-verse">「因為我們眾人必要在基督審判台前顯露出來。」（林後 5:10）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-1">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(1,'guide')" id="guide-btn-1">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(1,'sermon')" id="sermon-btn-1">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-1">
+    <div class="article-content">
 
 <h1>📅 6月9日 考察指引：雅典的心靈高地與哲學的交會</h1>
 
@@ -1753,10 +2155,49 @@ hr {
 
 <p><strong>禱告</strong>：<em>「天父，祢是獨一的造物主。這滿山的巨石、這浩瀚的星空，都是祢永能與神性的無聲見證。當我今晚安歇在卡蘭巴卡的山谷中時，求祢讓我的心深深地降服在祢的偉大之中。求祢成為我生命中那塊永不動搖的萬古磐石，讓我在明日前訪天空之城的旅程中，能更深地與祢相遇。奉主耶穌基督的聖名求，阿們。」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-1">
+  <div class="sermon-hero">
+    <div class="sermon-hero-label">✦ 現場講章 · Sermon</div>
+    <div class="sermon-hero-title">顛覆雅典的未識之神</div>
+    <div class="sermon-hero-sub">在亞略巴古宣告創造主的主權</div>
+    <div class="sermon-hero-meta">
+      <span class="sermon-meta-pill">📍 希臘雅典．亞略巴古山（Areopagus）</span>
+      <span class="sermon-meta-pill">📖 使徒行傳 17:22-31</span>
+    </div>
+  </div>
+  <div class="sermon-body">
+    <h1 class="sermon-h1">顛覆雅典的未識之神：在亞略巴古宣告創造主的主權</h1>
+<p><strong>經文：使徒行傳 17:22-31</strong></p>
+<p><strong>宣講地點：希臘雅典．亞略巴古山（Areopagus）現場</strong></p>
+<h3 class="sermon-h3">導言：在滑溜的紅岩石上，叩問終極現實</h3>
+<p>弟兄姊妹，今天我們一同站在這塊高低不平、滑溜的亞略巴古（Areopagus）紅色石灰岩上。當你站在這裡，請你轉過身，往上看——那高聳入雲、俯視整個雅典城的，是象徵希臘文明帝國榮耀的阿克波里斯（Acropolis，衛城），以及其上的巴特農神殿（Parthenon）。而當你低下頭往下看，在我們腳下伸展的，是古雅典的市集（Agora）。那裡曾是蘇格拉底、柏拉圖與路人辯論的地方，也是斯多亞學派（Stoics）與伊比鳩魯學派（Epicureans）每天交流思想、買賣貨物、展現人間智慧與財富的中心。</p>
+<p>第一世紀的使徒保羅，就是站在我們現在所站的這個位置。很多時候，我們讀《使徒行傳》第十七章保羅在雅典的宣講，心裡往往有一個先入為主的「宣教範式」。我們以為保羅在這裡進行了一場非常高明的「跨文化妥協」或「學術對話」。但今天，當我們親身站在這個歷史與考古的交叉點上，我們必須用一個顛覆性的眼鏡重新閱讀這段經文。保羅在這裡的宣告，絕非一場溫和的文化對話，而是一場對羅馬帝國秩序、希臘宗教哲學、以及人類自我主權（Self-sovereignty）的<strong>徹底顛覆</strong>。</p>
+<p>保羅看見滿城都是偶像，他裡面的「憤怒」（原文 <em>paroxyneto</em>，17:16，常譯為「心裡著急」，但這正是舊約中耶和華看見子民拜偶像時的「烈怒」）。這不是一種文化優越感，而是一個深受舊約先知傳統形塑的使徒，看見上帝的主權被地上人手所造的系統篡奪時，所發出的終極神學批判。</p>
+<h3 class="sermon-h3">一、敬虔的偽裝：以「未識之神」作保險的交易式信仰</h3>
+<p>經文第 22 節，保羅站在亞略巴古當中，說：「眾位雅典人哪，我看你們凡事很敬畏鬼神（<em>deisidaimonesterous</em>）。」在當時的希臘羅馬世界中，這是一個精準的雙關語。</p>
+<p>在希羅的多神信仰系統中，人與神的關係是「交易式」的（Transactional）。這種關係在拉丁文裡被稱為 <em>Do ut des</em>——「我給，好讓你回報」。我向波塞頓獻祭，好換取航海安全；我向雅典娜祈禱，好維持這座城市的帝國霸權。</p>
+<p>雅典人立這個「未識之神」的壇，本質上不是出於對真理的謙卑尋求，而是出於<strong>控制的企圖</strong>與<strong>恐懼的防線</strong>。這是一個「宗教保險單」，是用人手的禮儀去限制、安撫、並掌控那位他們無法預知的神明。</p>
+<p>今天，我們這些坐在教會裡的信徒，是否也在做同樣的事？我們常常以為，只要我們有穩定的靈修、高額的奉獻、正確的教義，我們就可以「控制」上帝，讓祂照著我們的計劃賜福給我們。</p>
+<p>保羅在這裡的宣告，直接擊碎了雅典人的這道防線：「你們所不認識而敬拜的，我現在告訴你們。」（17:23）</p>
+<h3 class="sermon-h3">二、顛覆帝國空間：不住人手所造之殿的創造主</h3>
+<p>保羅接著在第 24 節發出了最震撼的宣告：「創造宇宙和其中萬物的神，既是天地的主，就不住人手所造的殿。」當保羅說這句話時，他的手必然是指著上方那座宏偉的巴特農神殿。</p>
+<p>那座神殿是雅典的驕傲，是伯里克利（Pericles）用帝國同盟的黃金、最頂尖的白大理石所堆砌出來的。神殿不單是宗教中心，更是雅典城邦身份認同、財富與權力的終極象徵。</p>
+<p>保羅說「神不住人手所造的殿」，這不單是一個靈修的道理，這是一個<strong>政治與神學的雙重批判</strong>。</p>
+<p>保羅在第 25 節徹底倒轉了施恩者與受惠者的關係：「也不用人手伺候，好像缺少什麼；自己倒將生命、氣息、萬物，賜給萬人。」這是一個「施恩者概念」的終極顛覆。宇宙中唯一的施恩者（Benefactor）是上帝自己！我們沒有任何人能給予上帝任何東西。</p>
+<h3 class="sermon-h3">三、顛覆終極現實：在「沒有復活」的法庭宣告復活與審判</h3>
+<p>最後，保羅的講章推向了最高潮。第 30-31 節：「世人蒙昧無知的時候，神並不監察，如今卻吩咐各處的人都要悔改。因為他已經定了日子，要藉著他所設立的人按公義審判天下，並且叫他從死裡復活，給萬人作可信的憑據。」</p>
+<p>當聽眾聽到「從死裡復活」（<em>anastasis</em>）這四個字時，雅典人的反應是「有人譏笑他」（17:32）。為什麼他們要譏笑？這必須回到亞略巴古這個地方的歷史與神話背景。在古希臘悲劇家埃斯庫羅斯（Aeschylus）的劇作中，阿波羅曾在亞略巴古宣告：「當泥土吸乾了一個人的血，一旦他死了，就<strong>絕對沒有復活</strong>（<em>anastasis</em>）。」這句話是亞略巴古法庭創立的基石！</p>
+<p>然而，保羅偏偏站在這個以「宣告沒有復活」為奠基石的亞略巴古法庭上，直視著這群掌管司法與哲學的審判官，大聲宣告：<strong>「上帝已經叫祂從死裡復活！」</strong></p>
+<h3 class="sermon-h3">結語：從自我主權的崩潰，走向基督的同在</h3>
+<p>弟兄姊妹，當保羅講完這篇信息，雅典人的反應非常兩極。有人譏笑，有人說「我們再聽你講吧」，但也有幾個人貼近他，信了主，其中一位是亞略巴古的官丟尼修（Dionysius the Areopagite）。</p>
+<p>今天，我們站在亞略巴古，看著這片殘存的廢墟，那些昔日金碧輝煌的巴特農神殿只剩下斷壁殘垣，那些自命清高的哲學學派早已湮沒在歷史的塵埃中。唯有保羅在這裡所宣告的「那日子、那時辰」，以及那位「復活的主」，依然屹立不倒。</p>
+<p>我們今天來到這裡，是要被上帝的話語更新，去拆毀我們心中那些「人手所造的神殿」，去承認我們在世界混亂中的無能，並將我們的主權徹底降服於這位從死裡復活、掌管歷史的審判主。</p>
+<p>「起來，我們走吧！」讓我們帶著這份顛覆現實的復活信仰，從這座山上下去，在混亂的世代中，活出神主權治下的聖潔與見證。阿們。</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-2"2 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 3 · 6月10日</div>
   <span class="day-hero-emoji">⛰</span>
@@ -1765,7 +2206,16 @@ hr {
   <div class="day-hero-verse">「你們所看見的，要寫在書上，寄給亞細亞的七個教會。」（啟 1:11）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-2">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(2,'guide')" id="guide-btn-2">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(2,'sermon')" id="sermon-btn-2">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-2">
+    <div class="article-content">
 
 <h1>📅 6月10日 考察指引：天空之城的靜修與末世之光的雙重奏</h1>
 
@@ -2177,10 +2627,56 @@ hr {
 
 <p><strong>禱告</strong>：<em>「天父，感謝祢賦予我雙手的力量與做工的機會。求祢聖化我每一天的體力與腦力勞動。讓我不再把工作視為重擔，而是視為一場在日常崗位上榮耀祢的敬拜。求祢保守我，使我每天以警醒、安靜、踏實的步伐，預備迎接祢的榮耀顯現。蒙主耶穌基督聖名求，阿們。」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-2">
+  <div class="sermon-hero">
+    <div class="sermon-hero-label">✦ 現場講章 · Sermon</div>
+    <div class="sermon-hero-title">在卡蘭巴卡巨石下的宣告</div>
+    <div class="sermon-hero-sub">顛覆「離地」的聖潔與軟弱的職事</div>
+    <div class="sermon-hero-meta">
+      <span class="sermon-meta-pill">📍 希臘．卡蘭巴卡（Kalambaka）梅特羅巨石下</span>
+      <span class="sermon-meta-pill">📖 使徒行傳 17:14-15；哥林多後書 4:5-10</span>
+    </div>
+  </div>
+  <div class="sermon-body">
+    <h1 class="sermon-h1">在卡蘭巴卡巨石下的宣告：顛覆「離地」的聖潔與軟弱的職事</h1>
+<p><strong>宣講地點：希臘．卡蘭巴卡（Kalambaka）現場</strong></p>
+<p><strong>經文：使徒行傳 17:14-15；哥林多後書 4:5-10</strong></p>
+<hr>
+<h3 class="sermon-h3">引言：在帖撒利平原的巨石陰影下</h3>
+<p>各位弟兄姊妹，我們今天站在卡蘭巴卡（Kalambaka）這個地方。當你抬頭仰望，你無法不被身後那些高聳入雲、直插雲霄的梅特羅（Meteora）巨石所震撼。在希臘文裡面，<em>Meteora</em>（Μετέωρα）的意思就是「懸浮在半空中」或「在天上的空間」。這是一個極其奇特的地理景觀。而在第一世紀，這裡也承載著一個極其關鍵的神聖歷史轉折。</p>
+<p>在《使徒行傳》第十七章，使徒保羅在帖撒羅尼迦和庇哩亞經歷了極大的動盪。猶太人煽動群眾，逼迫保羅。經文在 14 至 15 節這樣記載：「當時弟兄們立刻打發保羅往海邊去，西拉和提摩太仍住在庇哩亞。送保羅的人帶他到了雅典……」</p>
+<p>學者們一直在爭論，保羅從庇哩亞南下雅典，到底是走海路還是陸路？如果保羅走的是陸路，他必須沿著這片廣闊的帖撒利平原（Thessalian Plain）南下，穿過我們今天腳下所站立的卡蘭巴卡，在這些巨大、冰冷、威嚴的灰色岩石陰影中隻身前行。</p>
+<p>這不是一場光榮的宣教凱旋。這是一場極其狼狽、孤獨、甚至顯得「無能」的逃亡。保羅被強迫與他的宣教同工西拉、提摩太分開。他隻身一人走在這些巨石之下，前途茫茫，而前面等待著他的，是充滿希臘哲學與異教偶像的雅典。</p>
+<p>當我們站在這個歷史、地理與神學碰撞的臨界點（Liminal Space）時，我們必須問一個根本性的問題：<strong>我們到底在尋找一種什麼樣的信仰？</strong></p>
+<h3 class="sermon-h3">第一方面：兩種「聖潔」的定義——梅特羅的「水平隔離」與保羅的「垂直重構」</h3>
+<p>當我們看著梅特羅頂端那些與世隔絕的修道院時，我們很自然會聯想到中古世紀修道士們的偉大心靈。在動盪的世代、帝國的侵略與世俗的蠶食下，修道士們選擇往上攀爬，在幾百公尺高、常人無法企及的孤峰石柱上建立修道院。他們有一句名言：「只有上帝能讓這些繩子斷掉。」這種修行方式，完美地契合了我們直覺中對「聖潔」的想像：<strong>聖潔就是分別，而分別就是物理空間上的隔離。</strong></p>
+<p>這在神學上，我稱之為「水平維度的聖潔（Horizontal Holiness）」。在這種邏輯下，世界是骯髒的、世俗是危險的、外邦是不潔的。為了保持聖潔，我們必須把界線劃得清清楚楚，甚至把我們自己提升到高處，遠離塵囂。</p>
+<p>然而，當保羅走在這些巨石之下的時候，他所傳講的福音，卻徹底顛覆了這種水平隔離的聖潔觀。對保羅而言，真正的聖潔不是「水平的隔離」，而是「垂直維度的重構（Vertical Holiness）」。</p>
+<p>什麼意思？真正的聖潔，是承認被造物與創造主之間的根本分野。當你承認自己是無能的被造者，降服在上帝的主權之下，你就不再需要依靠「劃分界線」或「躲進高牆」來建立自己的安全感。</p>
+<p>保羅的福音告訴我們：<strong>沒有一個地方是本質上不潔淨到神無法工作的，因為神顯現並工作的地方，就是聖地。</strong></p>
+<p>我們今天來做聖地考察，有沒有一個危險？我們很容易把「尋找神」變成一種交易式的、逃避現實的旅程。我們以為來到卡蘭巴卡，仰望梅特羅的修道院，我們就離上帝近了一點。但保羅的生平挑戰我們：<strong>真正的復興，從來不是在象牙塔或隱密的高台上發生的。真正的聖潔，是在面對世界的混亂時，因著垂直維度上對神的全然降服，而產生出衝破水平界線的憐憫與宣教動力。</strong></p>
+<h3 class="sermon-h3">第二方面：瓦器與巨石——在「無能」中彰顯的顛覆性力量</h3>
+<p>我們再看看這些巨石。在古代近東和希羅文化中，巨大的岩石、高台、避難所，往往象徵著帝國的權能、軍事的防禦以及神明的庇佑。</p>
+<p>但保羅在《哥林多後書》第四章，卻用了一個極其震撼的對比。在第七節保羅說：「我們有這寶貝放在瓦器裡，要顯明這莫大的能力是出於神，不是出於我們。」</p>
+<p>在希臘羅馬的世界裡，人們崇尚的是黃金、是大理石、是像梅特羅巨石般堅固、耀眼、不可一世的帝國紀念碑。那些「超級使徒（Super Apostles）」就是這種「巨石範式」的追求者。他們追求屬靈的異能、高超的口才、顯赫的身份和無可置疑的權威。</p>
+<p>但保羅說：不，我不是巨石。我只是一個<strong>瓦器（clay jar）</strong>。</p>
+<p>瓦器在第一世紀是最低賤、最廉價、最容易破碎的日常器皿。保羅為什麼要把福音的「寶貝」放在「瓦器」裡？</p>
+<p>這正是保羅神學中最具顛覆性的核心：<strong>神的救恩與權能，從來不是透過人的「強大」來宣告，而是在人的「無能」與「破碎」中得以彰顯。</strong></p>
+<p>當保羅走在卡蘭巴卡的巨石下，他是一個被驅逐出境的逃犯。他身上帶著鞭打的傷痕，他心中牽掛著那些剛剛建立、卻面臨分裂的馬其頓教會。他沒有帝國的護照，沒有軍隊的保護，沒有超級使徒的威風。他看起來就像一個隨時會破碎的瓦器。</p>
+<p>但保羅說：「我們四面受敵，卻不被困住；心裡作難，卻不至失望；遭逼迫，卻不被丟棄；打倒了，卻不至死亡。身上常帶著耶穌的死，使耶穌的生也顯明在我們身上。」（林後 4:8-10）</p>
+<p>羅馬帝國用大理石建造成的凱旋門和白塔，今天已經成為了供人拍照的廢墟；梅特羅巨石上的修道院，今天大半已成為遊客參觀的博物館。但那個在第一世紀、如同瓦器般走在帖撒利平原上的保羅，他所傳講的福音，卻徹底顛覆了整個羅馬帝國，改變了整個人類歷史。</p>
+<h3 class="sermon-h3">結語：帶領瓦器回到市集</h3>
+<p>各位弟兄姊妹，我們今天在這裡不是要築一座高台來傳揚我們自己的名。保羅在庇哩亞與雅典之間的這段「卡蘭巴卡路徑」，是一個從「成功」走向「孤單與考驗」的閾限空間。而在這個空間中，神要重新定義我們的身份。</p>
+<p>你不需要成為巨石。你只需要承認你是一個瓦器。因為唯有當瓦器承認自己的脆弱與無能時，我們才會把所有的焦點，都放在那承載在我們生命中、誠信真實的「寶貝」——耶穌基督的福音上。</p>
+<p>等一下，我們要離開卡蘭巴卡，繼續我們的行程。請記住，上帝給我們的召命，不是讓我們留在這「接近天堂」的梅特羅峰頂。祂乃是呼召我們這群帶著傷痕、帶著疑惑、如同瓦器般的生命，重新「走下去」，走回我們各自的城市、我們的家庭、我們的禾場。</p>
+<p>在那裡，世界會看見我們的軟弱，但更會在我們的軟弱中，看見那莫大的能力是出於上帝，而不是出於我們。</p>
+<blockquote class="sermon-prayer">禱告：</blockquote>
+<blockquote class="sermon-prayer">主上帝，感謝祢。今天當我們站在卡蘭巴卡的巨石之下，仰望這壯麗的地貌時，祢挪開了我們眼中的帕子。求祢拯救我們，脫離那種尋求「水平隔離」的虛假聖潔，叫我們在垂直的維度上，全然降服於祢的主權。主啊，我們承認我們只是脆弱、平凡的瓦器，在生活的混亂與事奉的重壓中，我們常常感到無能與作難。但我們感謝祢，因為祢竟將主耶穌基督這無價的寶貝，放在我們這群瓦器裡面。求祢賜給我們保羅當年的勇氣與信心，叫我們不懼怕前面的雅典與市集，帶著耶穌的死，在我們的破碎中顯明耶穌的生。奉主耶穌基督得勝的名祈禱。阿們。</blockquote>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-3"3 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 4 · 6月11日</div>
   <span class="day-hero-emoji">✝️</span>
@@ -2189,7 +2685,16 @@ hr {
   <div class="day-hero-verse">「保羅說：我是猶太人，生在基利家的大數，從小在這城裡長大。」（徒 22:3）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-3">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(3,'guide')" id="guide-btn-3">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(3,'sermon')" id="sermon-btn-3">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-3">
+    <div class="article-content">
 
 <h1>📅 6月11日 考察指引：馬其頓呼聲的初熟果子</h1>
 
@@ -2728,10 +3233,49 @@ hr {
 
 <p><strong>禱告</strong>：<em>「萬王之王、萬主之主耶穌基督，祢是那本有神的形像、卻為我主動虛己、順服以至於死在十字架上的救主。謝謝祢塗抹了我生命中血紅色的罪證，賜予我比雪更白的全新生命。主啊，求祢保守我，讓我在地上生活的每一天，不忘自己天國公民（Politeuma）的榮耀身份。當世俗的權力、金錢與名利誘惑我時，讓我以祢的心為心，在謙卑與捨己中，活出祢天國子民的聖潔與尊榮。直到祢Parousia榮耀降臨之日。奉主耶穌基督無比聖潔的尊名求，阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-3">
+  <div class="sermon-hero">
+    <div class="sermon-hero-label">✦ 現場講章 · Sermon</div>
+    <div class="sermon-hero-title">顛覆天下的「另一個王」</div>
+    <div class="sermon-hero-sub">在帖撒羅尼迦重讀使徒行傳的政治與十架</div>
+    <div class="sermon-hero-meta">
+      <span class="sermon-meta-pill">📍 希臘帖撒羅尼迦古羅馬市集 · Via Egnatia</span>
+      <span class="sermon-meta-pill">📖 使徒行傳 16:16-24；17:1-9</span>
+    </div>
+  </div>
+  <div class="sermon-body">
+    <h1 class="sermon-h1">顛覆天下的「另一個王」：在帖撒羅尼迦重讀使徒行傳的政治與十架</h1>
+<p><strong>宣講現場：希臘帖撒羅尼迦古羅馬市集（Agora）與埃格納蒂亞大道（Via Egnatia）交界處</strong></p>
+<p><strong>經文：使徒行傳 16:16-24，17:1-9</strong></p>
+<h3 class="sermon-h3">一、引言：在「帝國孔道」叩問福音的政治性</h3>
+<p>當我們今天站在這裡，站在帖撒羅尼迦的古羅馬市集遺址，腳下踩著這條貫穿東西方的埃格納蒂亞大道（Via Egnatia）時，我們不單是在參觀一個考古景點。我們是在進入第一世紀最劇烈的神學與政治衝突的暴風眼。</p>
+<p>大家有沒有留意到，當我們閱讀《使徒行傳》第17章時，反對保羅的群眾將耶孫和幾個弟兄拉到地方官那裡，發出了一個極其嚴重的控訴：「那攪亂天下的也到這裡來了……這都是違背該撒的命令，說另有一個王耶穌。」（徒 17:6-7）</p>
+<p>「攪亂天下」（Turning the <em>oikoumene</em> upside down），說「另有一個王耶穌」（saying there is another king, Jesus）。如果保羅傳的只是一個讓人心靈得安慰、死後上天堂的「安全消息」，你根本無法解釋為什麼他每到一個地方，都會引發政治性的恐慌與動亂。</p>
+<h3 class="sermon-h3">二、現場處境：在「自由城市」中的交易與焦慮</h3>
+<p>在羅馬帝國的政治版圖裡，帖撒羅尼迦是馬其頓行省的首府。在主前42年的腓立比戰役後，帖撒羅尼迦人精明地選擇支持奧古斯都，作為政治回報獲得了「自由城市」的地位。</p>
+<p>但請大家記住：<strong>這種「自由」不是無條件的，這種自由是「交易性」的。</strong> 帖撒羅尼迦的自由與繁榮，完全建立在他們對羅馬皇帝絕對、毫無瑕疵的忠誠（<em>fides</em>）之上。因此，這座城市成為了羅馬帝國皇帝崇拜（Imperial Cult）最狂熱的中心之一。</p>
+<p>在這裡有一個非常有趣的考古細節。在帖撒羅尼迦城市遺址的考古發掘中（包括現存於大英博物館的「瓦達門」Vardar Gate 銘文），考古學家發現了超過30處刻有「<em>Politarchs</em>（地方官）」這個詞的銘文，證明了路加記述的歷史精確性。</p>
+<h3 class="sermon-h3">三、經文對比：從腓立比的「權能釋放」到十架的「無能彰顯」</h3>
+<p>在腓立比（第16章），保羅和西拉被打了許多棍，關在最深的內監裡。在半夜，當他們禱告唱詩讚美神的時候，地大震動，監門大開，鎖鏈脫落（徒 16:25-26）。</p>
+<p>但到了帖撒羅尼迦（第17章），有沒有發生地大震動？有沒有發生監門大開的神蹟？沒有。相反，保羅必須在黑夜中，像逃犯一樣，被弟兄們「送往庇哩亞去」（徒 17:10）。</p>
+<p>如果我們把信仰建立在「神蹟必會即時拯救我、讓我避過世上一切苦難」的交易心態上，當我們在帖撒羅尼迦被迫落荒而逃時，我們的信仰就會徹底崩潰。</p>
+<p>保羅在《帖撒羅尼迦前書》中回憶這段經歷：「我們從前在腓立比被害受辱，這是你們知道的；可是我們還是靠著我們的神，在極大的爭戰中，放膽將神的福音傳給你們。」（帖前 2:2）</p>
+<p><strong>上帝的救恩與權能，從來不是透過地上的強大、富足或政治權勢來彰顯，而恰恰是透過人的「無能」與「瓦器般的軟弱」來成全。</strong></p>
+<h3 class="sermon-h3">四、神學批判：顛覆「交易性信仰」與「內在的敵基督」</h3>
+<p>這位耶穌，祂不是凱撒。凱撒的王權是建立在征服、殺戮、奴役和交易之上的。凱撒告訴你：你服從我，我給你和平。</p>
+<p>但這位耶穌，祂的王權是建立在「十字架的無能」之上。祂是一位「被賣到罪人手裡」、「被殺」、「死在十字架上」的君王。祂彰顯權能的方式，不是消滅祂的敵人，而是為祂的敵人倒空自己。</p>
+<p>在《帖撒羅尼迦後書》第二章中，保羅曾警告信徒關於末後那「大罪人」的顯露，並說「那不法的隱意已經發動」。保羅是在告訴我們：那種渴望扮演神、渴望不經過十字架就得到榮耀的「不法隱意」，早已在我們每一個人的生命中發動。</p>
+<p>當我們試圖用預知未來、追求成功學來「控制」上帝時，我們自己就正在扮演「敵基督」的角色。</p>
+<h3 class="sermon-h3">五、結論：帶著耶穌的印記，活在將來的現實中</h3>
+<p>各位弟兄姊妹，今天，在帖撒羅尼迦的烈日與微風中，福音再次向我們發出質問：我們是否預備好，去作一個「攪亂天下」的門徒？</p>
+<p>「攪亂天下」不是叫我們去搞政治暴動，而是叫我們<strong>不再被眼前的俗世現實所定義</strong>。羅馬帝國已經消逝了，凱撒的廟宇如今只剩下斷壁殘垣。但那位在十字架上看似無能、被羅馬政權處決的耶穌基督，祂的國度卻存到永遠。</p>
+<p>保羅在《加拉太書》的結尾說：「從今以後，人都不要攪擾我，因為我身上帶著耶穌的印記。」（加 6:17）</p>
+<p>今天，當我們走完這條宣教足跡，求主奪去我們對「凱撒式成功」的幻想，叫我們甘願作耶穌基督的奴僕。讓我們在一個以交易為法則的世界中，活出「非交易性」的恩典；在一個以強權為偶像的世代中，見證「無能中的大能」。願主耶穌基督——那真正的王，得著我們一生的主權。阿們。</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-4"4 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 5 · 6月12日</div>
   <span class="day-hero-emoji">⚓</span>
@@ -2740,7 +3284,16 @@ hr {
   <div class="day-hero-verse">「馬其頓人出現，懇求他說，請你過來幫助我們。」（徒 16:9）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-4">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(4,'guide')" id="guide-btn-4">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(4,'sermon')" id="sermon-btn-4">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-4">
+    <div class="article-content">
 
 <h1>📅 6月12日 考察指引：愛琴海的跨航與異象的迴聲</h1>
 
@@ -3210,10 +3763,55 @@ hr {
 
 <p><strong>禱告</strong>：<em>「萬軍之耶和華，祢是歷史與宇宙唯一的君王。看著這片由帝國血淚染紅的達達尼爾海峽，我的心深深地戰慄於人類罪惡與虛榮的毀滅性代價。主啊，求祢保守我的靈魂，不讓我將終極的盼望與效忠寄託在任何短暫的世俗帝國與政治力量之上。求祢成為我生命中那塊唯一不動搖的萬古磐石！讓我以無比警醒、安靜且充滿了聖潔指望的腳步，在我的日常生活中盡忠職守，熱切地預備迎接祢永恆和平天國的降臨。奉主耶穌基督那超乎萬名之上、無比聖潔的尊名求，阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-4">
+  <div class="sermon-hero">
+    <div class="sermon-hero-label">✦ 現場講章 · Sermon</div>
+    <div class="sermon-hero-title">顛覆羅馬秩序的十字架</div>
+    <div class="sermon-hero-sub">在腓立比宣告另一個國度</div>
+    <div class="sermon-hero-meta">
+      <span class="sermon-meta-pill">📍 希臘腓立比古城遺址 · Via Egnatia</span>
+      <span class="sermon-meta-pill">📖 使徒行傳 16:11-40；腓立比書 2:5-11；3:20-21</span>
+    </div>
+  </div>
+  <div class="sermon-body">
+    <h1 class="sermon-h1">顛覆羅馬秩序的十字架：在腓立比宣告另一個國度</h1>
+<p><strong>宣講經文：使徒行傳 16:11-40；腓立比書 1:27-30, 2:5-11, 3:20-21</strong></p>
+<p><strong>宣講現場：希臘腓立比古城遺址（臨近埃格納提亞大道 Via Egnatia 與傳統保羅囚室）</strong></p>
+<h3 class="sermon-h3">引言：在帝國秩序的虛無中叩問</h3>
+<p>各位同工、弟兄姊妹，今天我們站在這裡。在我們的腳下，是古羅馬帝國最著名的軍事與商業命脈——埃格納提亞大道（Via Egnatia）。第一世紀的腓立比，是羅馬帝國的「直轄殖民地」（colonia）——它是羅馬在愛琴海北岸的縮影（mini-Rome）。這裡的居民享有「意大利權利」（ius Italicum），免徵土地稅與人頭稅，以維持羅馬的法律、秩序與和平（Pax Romana）為神聖使命。</p>
+<p>然而，當上帝要把福音帶進歐洲，開啟這場改變歷史的「新出埃及」運動時，祂是怎樣進場的？沒有。福音在腓立比的起頭，甚至沒有一個像樣的會堂。在一個以男性軍人、退役將領、帝國建制為核心的羅馬殖民地裡，福音的第一站，是在城門外一條泥濘的河邊，向著一群沒有社會政治話語權的「婦女」宣講。這就是上帝的道路。</p>
+<h3 class="sermon-h3">一、權能與軟弱的對決：從河邊到監牢（徒 16:11-24）</h3>
+<h4 class="sermon-h4">1. 被邊緣化的「擴張」</h4>
+<p>我們看《使徒行傳》16章13至14節。保羅在安息日出城門，到了河邊，在那裡遇到了一位賣紫色布疋的婦人，名叫呂底亞。在腓立比這個極度排外、強調純正羅馬血統的殖民地中，她是一個徹底的邊緣人。路加在這裡用了一個極其重要的細節：「主開導她的心」（徒 16:14）。</p>
+<p>福音的擴張，從來不是依恃地上建制的通行證，而是透過聖靈在那些「無能者」和「邊緣者」生命中的工作，將他們引進以賽亞僕人的「順服範式」中。</p>
+<h4 class="sermon-h4">2. 帝國崇拜的衝突</h4>
+<p>當保羅奉耶穌基督的名趕出那巫覡之靈（python spirit），主人的控告是極其精準的政治控告：「這些人原是猶太人，竟騷擾我們的城，傳我們羅馬人所不可受、不可行的規矩。」（徒 16:20-21）這不是宗教爭端，這是一場關乎「身份認同」的危機。</p>
+<h3 class="sermon-h3">二、「新出埃及」與監獄中的自由（徒 16:25-34）</h3>
+<p>保羅與西拉被打得遍體鱗傷，下在內監，雙腳套上木狗（stocks）。這是一個「無能」到了極處的狀態。按照地上的常理，宣教使命至此徹底破產。</p>
+<p>然而，保羅與西拉在半夜做了什麼？他們「禱告、唱詩讚美神」（徒 16:25）。這是以賽亞僕人範式的最高體現：在苦難中，不靠自己的權能反抗，而是完全降服於上帝的主權之下。</p>
+<p>隨後，大地震動，監門全開，鎖鏈脫落（徒 16:26）。然而，當羅馬禁卒拔刀想要自殺時，保羅卻大聲呼叫說：「不要傷害自己！我們都在這裡！」（徒 16:28）</p>
+<p>到底誰才是真正的囚犯？是那些雙腳被鎖、但在半夜高聲讚美上帝的保羅與西拉？還是那位手握兵器、代表羅馬帝國暴力，卻因害怕失職受審而試圖尋死的禁卒？</p>
+<p>那位禁卒在驚恐中俯伏在保羅面前，問道：「二位先生，我當怎樣行才可以得救？」保羅的回答是：「當信主耶穌，你和你一家都必得救。」（徒 16:31）</p>
+<p>這個「出埃及」的結局，不是奴隸逃跑、壓迫者被滅；而是<strong>壓迫者本身被福音拯救，加入了被壓迫者的群體，一同吃飯、一同在「家庭法庭」中被宣告為義。</strong></p>
+<h3 class="sermon-h3">三、腓立比書的終極宣告：天上的國民與十字架的恥辱</h3>
+<p>保羅寫《腓立比書》的時候，同樣是在監獄裡。在《腓立比書》第2章，保羅引用著名的「基督頌（Christ Hymn）」：</p>
+<p>祂不以自己與神同等為強奪的，反倒「虛己（kenosis）」，取了奴僕的形像，「且死在十字架上」（腓 2:7-8）。</p>
+<p><strong>這位死在羅馬帝國恥辱十字架上的耶穌，才是那位「超乎萬名之上」、萬膝跪拜、萬口承認的唯一的主（Kyrios）！</strong></p>
+<p>在《腓立比書》3章20節，保羅給出了最致命的宣告：「我們卻是天上的國民（politeuma），並且等候救主，就是主耶穌基督從天上降臨。」</p>
+<p>地上的教會是「天國的殖民地」。我們的使命，是在這個被羅馬權力、世俗金錢和帝國秩序定義的世界中，將「天國的生命、主耶穌的秩序」活生生地呈現出來！</p>
+<h3 class="sermon-h3">四、診斷我們今天的信仰模式：我們在拜誰？</h3>
+<p>弟兄姊妹，當我們今天站在腓立比的廢墟中，讓我們問自己一個誠實的問題：<strong>我們今天所追求的、所拜的，究竟是「凱撒的羅馬」，還是「基督的十字架」？</strong></p>
+<p>我們是否也在追求一種「羅馬公民式」的安全感？我們希望我們的信仰能夠提供給我們地上法律的保障、社會地位的認同，以及經濟上的繁榮。我們把「神的恩典」當作我們鞏固個人帝國的工具。</p>
+<p>但保羅在這裡告訴我們：神的救恩與權能，總是透過人的「無能（inability）」與對現實的「顛覆」來彰顯的。</p>
+<h3 class="sermon-h3">結語：起來，我們走吧！走向十字架的凱旋</h3>
+<p>保羅和西拉被釋放後，他們回到了呂底亞的家，安慰了那裡的弟兄姊妹，然後才從容地離開（徒 16:40）。這群在帝國邊緣、被剝奪了地權與話語權的基督徒，卻成了歐洲第一個「天國的殖民地」。</p>
+<p>耶穌基督已經在十字架上一次並永遠地（once and for all）贏得了這場戰爭。讓我們離開對地上帝國安全的幻想，走下這條自誇力量的埃格納提亞大道，走進那些受苦者、邊緣者的生命中。在我們的無能中，在我們的軟弱中，披戴主耶穌基督，活出那天國國民的真正尊榮。</p>
+<p>願上帝在這片曾見證使徒血汗的土地上，重新奪回我們的心。阿們。</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-5"5 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 6 · 6月13日</div>
   <span class="day-hero-emoji">👑</span>
@@ -3222,7 +3820,16 @@ hr {
   <div class="day-hero-verse">「我知道你的行為，你在那撒但座位之處，仍然持守我的名。」（啟 2:13<div class="verse-popup" id="vc_啟_2_13"><div class="verse-popup-header" onclick="toggleVerse('vc_啟_2_13')"><span class="verse-ref-icon">✦</span><span class="verse-ref-label">📖 啟示錄 2:13</span><span class="verse-toggle-icon">▼</span></div><div class="verse-popup-body"><span class="vnum">13</span>我知道你的居所，就是有撒但座位之處；當我忠心的見證人安提帕在你們中間、在撒但所住的地方被殺之時，你還堅守我的名，沒有棄絕我的道。</div></div>）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-5">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(5,'guide')" id="guide-btn-5">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(5,'sermon')" id="sermon-btn-5">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-5">
+    <div class="article-content">
 
 <h1>📅 6月13日 考察指引：撒但座位的對決與殉道者的無畏冠冕</h1>
 
@@ -3695,10 +4302,53 @@ hr {
 
 <p><strong>禱告</strong>：<em>「那死過又活了、掌管生死終局的主耶穌，祢是士每拿受苦教會的安慰，是聖坡旅甲一生效忠的救主君王。看著這座大理石拱廊的廢墟，我為我心靈深處對物質財富的貪戀、對貧窮的恐懼而向祢徹底認罪悔改！求祢重構我的財富神學與生命價值觀，讓我在世俗的貧窮、挫折與排斥中，看清我在基督裡早已擁有的永恆屬靈巨富。賜我至死忠心的膽量與忍耐！當烈火與苦難臨到我的生命時，讓我以坡旅甲為榜樣，無懼肉體的第一次死亡，單單凝望著祢在天國施恩座前，正為我親手預備的那頂永不凋謝的生命冠冕（Stephanos）。阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-5">
+  <div class="sermon-hero">
+    <div class="sermon-hero-label">✦ 現場講章 · Sermon</div>
+    <div class="sermon-hero-title">顛覆帝國史詩的兩次啟航</div>
+    <div class="sermon-hero-sub">在特羅亞宣告十字架的「無能」與生命</div>
+    <div class="sermon-hero-meta">
+      <span class="sermon-meta-pill">📍 土耳其 亞歷山大特羅亞古港口遺址</span>
+      <span class="sermon-meta-pill">📖 使徒行傳 16:6-11；20:5-12；哥林多後書 2:12-13</span>
+    </div>
+  </div>
+  <div class="sermon-body">
+    <h1 class="sermon-h1">顛覆帝國史詩的兩次啟航：在特羅亞宣告十字架的「無能」與生命</h1>
+<p><strong>宣講現場：土耳其 亞歷山大特羅亞（Alexandria Troas）古港口遺址</strong></p>
+<p><strong>經文：使徒行傳 16:6-11；20:5-12；哥林多後書 2:12-13</strong></p>
+<h3 class="sermon-h3">一、引言：在兩個史詩的交匯點上</h3>
+<p>各位弟兄姊妹，今天我們一同站在這個古老的港口遺址——亞歷山大特羅亞（Alexandria Troas）。當你閉上眼睛，聽著愛琴海的波濤聲，看著殘存的防波堤和倒塌的羅馬花崗岩柱，你的腦海裡會浮現出什麼？</p>
+<p>在我們北邊不遠處，就是傳說中的古城特洛伊（Troy）。在那裡，荷馬史詩中的阿基里斯與赫克特曾進行過慘烈的決鬥；在那裡，希臘人留下了著名的特洛伊木馬。</p>
+<p>對羅馬帝國而言，特羅亞是帝國起源的聖地。羅馬最偉大的史詩、維吉爾（Virgil）所著的《埃涅阿斯紀》（Aeneid）告訴我們：當特洛伊被焚毀後，特洛伊的英雄埃涅阿斯（Aeneas）正是帶著殘存的家神，從我們腳下這片特羅亞的海岸啟航，向西橫渡愛琴海，最終在意大利半島登陸，奠定了羅馬帝國的基石。</p>
+<p>然而，在第一世紀，有另外一個人來到了這裡——一個在人看來「無能」、宣教計劃屢屢被「封鎖」的猶太瓦器——使徒保羅。今天，我們要在這片海岸上，問一個問題：<strong>到底什麼才是顛覆世界的真正能力？是羅馬帝國式的征服與擴張，還是基督十字架式的軟弱與順服？</strong></p>
+<h3 class="sermon-h3">二、第一航次：被拒絕的「A計劃」與無能者的呼聲（徒 16:6-11）</h3>
+<p>我們首先來看《使徒行傳》第16章。第6節：「聖靈既然禁止他們在亞西亞講道……」第7節：「到了每西亞的邊界，他們想要往庇推尼去，耶穌的靈卻不許。」</p>
+<p>你有沒有想過，為什麼要這樣寫？對保羅而言，在亞西亞和庇推尼的省會講道，是再合理不過的「A計劃」。但神卻一而再、再而三地對他說「不」。神封鎖了他的道路，將他一步步「逼」到了這個歐亞交界的死胡同——特羅亞。</p>
+<p>保羅在特羅亞的經歷告訴我們：神的主權，往往是在拒絕我們最屬靈的計劃、在暴露我們的無能時開始彰顯的。保羅在這裡，是一個計劃碰壁、無路可走的宣教士。</p>
+<p>就在這個他承認自己無能、計劃歸零的時刻，夜間的異象顯現了。那是一個馬其頓人的呼聲：「請你過來幫助我們！」（16:9）這是一個「求助」的聲音，與羅馬史詩的征服邏輯完全相反。</p>
+<p>路加在第11節寫道，保羅「一直行」（εὐθυδρομέω，順風直航）從特羅亞到了馬其頓——這在古代愛琴海航行中是非常罕見的。當保羅放下自己的「A計劃」，在無能中順服聖靈的引領時，神自己按下了福音啟航的「啟動鍵」。</p>
+<h3 class="sermon-h3">三、留下的缺口：為弟兄憂慮而走開的「敞開之門」（林後 2:12-13）</h3>
+<p>保羅寫道：「我從前為基督的福音到了特羅亞，主也給我開了門。那時，因為沒有遇見兄弟提多，我心裡不安，便辭別那裡的人往馬其頓去了。」（林後 2:12-13）</p>
+<p>弟兄姊妹，請你停下來，仔細想想這段經文。主已經為保羅開了福音的大門，但因為見不到兄弟提多，保羅心裡極度不安、憂慮，所以「放棄」了這個敞開的機會，決定坐船去馬其頓。</p>
+<p>那些反對保羅的「超級使徒」正是用這類的事情來控訴保羅。但保羅要顛覆那種「事工高於生命、權能掩蓋軟弱」的假教師神學。福音的事奉不是機器，福音的使者也不是無情的超級英雄。</p>
+<p><strong>正是這種「心裡不安」和對弟兄的愛，顯明了他身上帶著的是耶穌基督十字架的標記（stigmata），而不是羅馬凱撒式的冷酷鐵腕。</strong></p>
+<h3 class="sermon-h3">四、第二航次：猶推古的墜落與凱撒死亡權勢的顛覆（徒 20:5-12）</h3>
+<p>現在，讓我們把時間往後推幾年。保羅完成了在馬其頓和亞該亞的工作，他再次回到特羅亞。在出發前的最後一個晚上，發生了新約聖經中最具黑色幽默、卻也最驚心動魄的故事——猶推古墜樓事件。</p>
+<p>那是「七日的第一日」，信徒聚在一起擘餅。路加特別提到：「我們聚會的那間樓上，有好些燈燭。」（20:8）在第一世紀，這群聚集在三樓聚會的人，很可能是社會底層的奴隸或勞工。</p>
+<p>一個名叫猶推古（Eutychus）的年輕人坐在窗台上。他的名字在希臘語中，意思是「幸運」（Lucky）。然而，這個名叫「幸運」的年輕人，卻在困倦中，從三樓掉了下去，「扶起已經死了」（20:9）。</p>
+<p>面對這個死亡，保羅「下去，伏在他身上，抱著他」（20:10）。這是一個「先知象徵性的行動」（Prophetic Symbolic Act）：在這個被死亡權勢籠罩的帝國殖民地裡，有另外一位君王——那死裡復活的耶穌基督，已經戰勝了死亡。</p>
+<p>保羅宣告猶推古的靈魂還在身上之後，「又上去，擘餅，吃了，談論許久，直到天亮，這才走了」（20:11）。一個死人復活了，但聚會的焦點仍然是「擘餅」（Eucharist）——代表耶穌基督自願獻上的身體與流出的血。</p>
+<p><strong>復活不是一個用來證明使徒有多偉大的工具，復活是神子民在末世亂世中，能夠繼續在地上擘餅、宣告基督掌權、並勇敢前行的終極現實。</strong></p>
+<h3 class="sermon-h3">五、結語：航向十字架的深海</h3>
+<p>各位弟兄姊妹，我們今天站在特羅亞的這片廢墟前。這裡曾經是亞歷山大、凱撒、和羅馬帝國史詩的啟航點。今天，兩千年過去了。凱撒的港口已經淤積成了陸地，特羅亞的雕樑畫棟早已化為土中的碎石。</p>
+<p>唯獨那個被聖靈多次禁止、帶著軟弱的心為弟兄憂慮、在深夜裡抱著死去的奴隸擘餅的使徒保羅，他所宣講的那位在十字架上「無能」被殺、卻從死裡復活的耶穌基督，祂的福音直到今天依然在改變生命。</p>
+<p>保羅在特羅亞的兩次啟航挑戰我們：<strong>你是否願意接受聖靈對你「A計劃」的拒絕？你是否願意承認自己如「瓦器」般的軟弱，甚至為弟兄的靈命保留一處不安與關係的缺口？你是否願意在帝國虛假的繁榮與死亡的陰影中，俯下身去，擁抱那些墜落受傷的生命，宣告復活的餅與杯？</strong></p>
+<p>讓我們在這片愛琴海的風中，脫下那套試圖征服世界的帝國戰甲。讓我們像保羅一樣，帶著十字架的軟弱，航向神主權的深海。願神的話語建立我們。</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-6"6 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 7 · 6月14日</div>
   <span class="day-hero-emoji">📜</span>
@@ -3707,7 +4357,16 @@ hr {
   <div class="day-hero-verse">「你要寫信給以弗所教會的使者，說……你把你起初的愛心離棄了。」（啟 2:1,4）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-6">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(6,'guide')" id="guide-btn-6">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(6,'sermon')" id="sermon-btn-6">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-6">
+    <div class="article-content">
 
 <h1>📅 6月14日 考察指引：起初愛心的失落與聖言的永恆中樞</h1>
 
@@ -4248,10 +4907,15 @@ hr {
 
 <p><strong>禱告</strong>：<em>「那死過又活了、直活到永永遠遠的羔羊耶穌基督，祢是那帶領使徒約翰穿透孤島與黑夜、看見天國終極輝煌的救主君王。看著這片深邃的愛琴海，我的心深深地降服在祢那將海浪平息為玻璃海的至高主權中。主啊，不論我今天面臨怎樣的孤獨、迫害、疾病與靈性至暗，求祢讓我那疲憊的雙眼，能穿透這世俗的波濤，凝望著祢那充滿了烈火與水晶光輝的永恆玻璃海。讓我至死忠心，直到與萬民一同站立在祢寶座前彈琴歌唱的那一天。奉主耶穌基督那無比榮耀、聖潔、永恆的尊名求，阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-6">
+  <div class="sermon-no-content">
+    <div class="no-sermon-icon">✍️</div>
+    <p>本日現場講章<br>即將加入</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-7"7 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 8 · 6月15日</div>
   <span class="day-hero-emoji">🏺</span>
@@ -4260,7 +4924,16 @@ hr {
   <div class="day-hero-verse">「老底嘉教會的使者，你說我是富足的，已發了財，一樣都不缺；卻不知道你是那困苦、可憐、貧窮、瞎眼、赤身的。」（啟 3:17<div class="verse-popup" id="vc_啟_3_17"><div class="verse-popup-header" onclick="toggleVerse('vc_啟_3_17')"><span class="verse-ref-icon">✦</span><span class="verse-ref-label">📖 啟示錄 3:17</span><span class="verse-toggle-icon">▼</span></div><div class="verse-popup-body"><span class="vnum">17</span>你說：我是富足的，已經發了財，一樣都不缺；卻不知道你是那困苦、可憐、貧窮、瞎眼、赤身的。</div></div>）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-7">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(7,'guide')" id="guide-btn-7">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(7,'sermon')" id="sermon-btn-7">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-7">
+    <div class="article-content">
 
 <h1>📅 6月15日 考察指引：金砂的審判、不冷不熱的溫泉與殿中的柱子</h1>
 
@@ -4747,10 +5420,15 @@ hr {
 
 <p><strong>禱告</strong>：<em>「天父，祢是創造這棉花堡純白地貌與神聖醫治溫泉的造物主上帝。今晚，當我安歇在希拉波立的泉水旁時，求祢讓我的肉體得著康復，更求祢聖靈的火，重新燃燒我這顆因世界而漸漸變得不冷不熱的心靈！讓我看著使徒腓立比在山頂倒釘十字架的信仰豐碑，賜我同樣至死不渝的Nike得勝力量。讓我的一生，在祢那水晶般平靜、火攙雜的玻璃海上，與萬民共同彈琴歌唱。奉主耶穌基督那誠信真實、永活的君王聖名求，阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-7">
+  <div class="sermon-no-content">
+    <div class="no-sermon-icon">✍️</div>
+    <p>本日現場講章<br>即將加入</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-8"8 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 9 · 6月16日</div>
   <span class="day-hero-emoji">🌋</span>
@@ -4759,7 +5437,16 @@ hr {
   <div class="day-hero-verse">「那美好的仗我已經打過了，當跑的路我已經跑盡了，所信的道我已經守住了。」（提後 4:7）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-8">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(8,'guide')" id="guide-btn-8">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(8,'sermon')" id="sermon-btn-8">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-8">
+    <div class="article-content">
 
 <h1>📅 6月16日 考察指引：在磐石與高原上的使徒凱歌與三一之光</h1>
 
@@ -5110,10 +5797,15 @@ hr {
 
 <p><strong>禱告</strong>：<em>「獨一本體、三位格共融的聖父、聖子、聖靈三一真神，我尊崇祢！謝謝祢派遣了卡帕多加的三位僕人，為我們在歷史的至暗廢墟中，守護住了三位一體真理的純潔黃金。求祢將我接納進入這場永恆愛的互滲共融（Perichoresis）之中。讓我的生命、我的家庭與我的教會，都能在祢這無私、均等、聖潔的聖愛中聯絡得合式，漸漸活出祢天國那和諧、得勝的榮耀版圖。奉三一真神耶穌基督無比神聖的尊名求，阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-8">
+  <div class="sermon-no-content">
+    <div class="no-sermon-icon">✍️</div>
+    <p>本日現場講章<br>即將加入</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-9"9 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 10 · 6月17日</div>
   <span class="day-hero-emoji">🪨</span>
@@ -5122,7 +5814,16 @@ hr {
   <div class="day-hero-verse">「他們就照著所宣傳的下水，從那裡到了安提阿。」（徒 14:26）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-9">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(9,'guide')" id="guide-btn-9">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(9,'sermon')" id="sermon-btn-9">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-9">
+    <div class="article-content">
 
 <h1>📅 6月17日 考察指引：岩窟中的修道院、巨石高台與深邃地底的信仰避難所</h1>
 
@@ -5497,10 +6198,15 @@ hr {
 
 <p><strong>禱告</strong>：<em>「獨一、同質、互滲共融的三一真神，我的聖父、聖子與聖靈。謝謝祢一路上用祢那恩典的翅膀，護理、保守並帶領着我們完成了這段史詩般的保羅與七教會考察。當我們今晚安息在歐亞大平原與海峽交界處時，求祢預備我們的心靈。讓我們在明日前訪藍廟、聖蘇菲亞大教堂與考古博物館的終極旅程中，能看清人類帝國興衰的政治神學，單單將我們生命、主權與靈魂的護照，效忠並呈獻給祢這位即將在玻璃海上耀眼再臨的萬王之王。奉主耶穌基督那超乎萬名之上、無比神聖尊榮的名求，阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-9">
+  <div class="sermon-no-content">
+    <div class="no-sermon-icon">✍️</div>
+    <p>本日現場講章<br>即將加入</p>
+  </div>
+</div>
 </section>
 <section class="tab-panel " id="tab-10"10 role="tabpanel">
-
 <div class="day-hero">
   <div class="day-hero-date">Day 11 · 6月18日</div>
   <span class="day-hero-emoji">🕌</span>
@@ -5509,7 +6215,16 @@ hr {
   <div class="day-hero-verse">「萬王之王，萬主之主。」（啟 19:16）</div>
 </div>
 
-<div class="article-content">
+  <div class="inner-tabs" id="inner-tabs-10">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(10,'guide')" id="guide-btn-10">
+      <span class="tab-icon">🗺</span>考察指引
+    </button>
+    <button class="inner-tab-btn" onclick="switchInnerTab(10,'sermon')" id="sermon-btn-10">
+      <span class="tab-icon">✝️</span>現場講章
+    </button>
+  </div>
+  <div class="inner-pane active" id="guide-pane-10">
+    <div class="article-content">
 
 <h1>📅 6月18日 考察指引：帝國中樞的雙城交響與聖言的泥板遺澤</h1>
 
@@ -6239,7 +6954,13 @@ hr {
 
 <p><strong>禱告</strong>：<em>「萬王之王、萬主之主、神聖智慧的主耶穌基督。當我完成了這場史詩般的保羅行蹤與啟示錄七教會考察、站在君士坦丁堡這蔚藍的海峽與大教堂的穹頂下、向這片聖地發出最後的深情告別時，我的雙手要向祢的寶座徹底高舉！ 主啊！謝謝祢一路上用祢那恩典的翅膀，護理、保守並聖化了我每一步的腳印。 這滿城的废墟、這聖殿的石碑、這地底下的暗室，都在向我宣告：世界與世俗的帝國終將廢去，唯有祢十字架與復活的福音，要直立定到永永遠遠！ 求祢將祢在愛琴海畔、在加拉太高原、在君士坦丁堡大教堂內向我啟示的聖言，徹底刻在我有血有肉的心碑上！讓我回到我的日常職場、回到我的家庭與我自己的世代中時，依然能披戴祢的白衣，攻克己身，安靜做工，在世俗的阿哥拉中活出祢天國子民（Politeuma）的無上尊嚴！ 我將我的一生、我的家庭、我的事奉與我的靈魂，完全向祢臣服、向祢奉獻。直等到祢Parousia荣耀降臨、在永恆的玻璃海上與萬民彈琴歌唱的那一天！ 奉主耶穌基督那超乎萬名之上、萬膝必跪拜、萬口必承認、無比神聖尊貴且永恆的君王聖名求，阿們！阿們！阿們！」</em></p>
 </div>
-
+  </div>
+  <div class="inner-pane" id="sermon-pane-10">
+  <div class="sermon-no-content">
+    <div class="no-sermon-icon">✍️</div>
+    <p>本日現場講章<br>即將加入</p>
+  </div>
+</div>
 </section>
 
 </main>
@@ -6452,6 +7173,49 @@ function toggleVerse(id) {
   if (el) el.classList.toggle('open');
 }
 
+
+function switchInnerTab(tabIdx, pane) {
+  // Guide pane
+  var gp = document.getElementById('guide-pane-' + tabIdx);
+  var sp = document.getElementById('sermon-pane-' + tabIdx);
+  var gb = document.getElementById('guide-btn-' + tabIdx);
+  var sb = document.getElementById('sermon-btn-' + tabIdx);
+  if (!gp || !sp) return;
+  if (pane === 'guide') {
+    gp.classList.add('active'); sp.classList.remove('active');
+    gb.classList.add('active'); sb.classList.remove('active');
+  } else {
+    sp.classList.add('active'); gp.classList.remove('active');
+    sb.classList.add('active'); gb.classList.remove('active');
+  }
+  // Scroll to top of inner content
+  var innerTabs = document.getElementById('inner-tabs-' + tabIdx);
+  if (innerTabs) {
+    var top = innerTabs.getBoundingClientRect().top + window.scrollY - 62;
+    window.scrollTo({top: top, behavior: 'smooth'});
+  }
+}
+
+// ── Update Popup ──
+var UPDATE_VERSION = '2.0';
+var UPDATE_KEY = 'seen_update_' + UPDATE_VERSION;
+
+function showUpdatePopup() {
+  var seen = localStorage.getItem ? localStorage.getItem(UPDATE_KEY) : null;
+  if (!seen) {
+    document.getElementById('update-popup').classList.add('show');
+  }
+}
+function closeUpdatePopup() {
+  document.getElementById('update-popup').classList.remove('show');
+  try { localStorage.setItem(UPDATE_KEY, '1'); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Show update popup shortly after load
+  setTimeout(showUpdatePopup, 800);
+});
+
 </script>
 
 <!-- Quick Jump FAB -->
@@ -6465,6 +7229,43 @@ function toggleVerse(id) {
   </div>
 </div>
 <div id="qj-backdrop" onclick="closeQJ()"></div>
+
+
+<!-- Update Popup -->
+<div id="update-popup" role="dialog" aria-modal="true">
+  <div id="update-popup-box">
+    <div id="update-popup-header">
+      <h3>✦ 網頁版本更新 v2.0</h3>
+      <p>保羅行蹤及啟示錄七教會考察 · 考察指引</p>
+    </div>
+    <div id="update-popup-body">
+      <div class="update-feature">
+        <div class="update-feature-icon">✝️</div>
+        <div class="update-feature-text">
+          <h4>新增現場講章</h4>
+          <p>6月8–12日（哥林多、雅典、卡蘭巴卡、帖撒羅尼迦、腓立比、特羅亞）各有完整現場講章，點「✝️ 現場講章」分頁即可閱讀。</p>
+        </div>
+      </div>
+      <div class="update-feature">
+        <div class="update-feature-icon">📖</div>
+        <div class="update-feature-text">
+          <h4>內嵌經文卡片</h4>
+          <p>全程140段聖經引文直接嵌入，在景點中點擊藍色📖按鈕即可展開完整中文和合本經文，毋須另開聖經。</p>
+        </div>
+      </div>
+      <div class="update-feature">
+        <div class="update-feature-icon">🗺</div>
+        <div class="update-feature-text">
+          <h4>雙欄頁面結構</h4>
+          <p>每天分「考察指引」與「現場講章」兩個分頁，方便在景點現場即時切換查閱。</p>
+        </div>
+      </div>
+    </div>
+    <div id="update-popup-footer">
+      <button id="update-close-btn" onclick="closeUpdatePopup()">明白了，開始考察 ✦</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
