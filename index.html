@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="mobile-web-app-capable" content="yes">
@@ -1247,6 +1243,86 @@ blockquote.sermon-prayer::before {
   margin-top: 4px;
 }
 
+
+/* ── Intro Page: Five Questions Component ── */
+.five-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 24px 0 28px;
+  border: 1px solid var(--parchment-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.fq-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  border-bottom: 1px solid var(--parchment-dark);
+  transition: background 0.18s;
+}
+.fq-item:last-child { border-bottom: none; }
+.fq-item:hover { background: rgba(201,168,76,0.06); }
+.fq-num {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--gold);
+  min-width: 64px;
+  padding: 18px 0 18px 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+.fq-content {
+  padding: 16px 20px 16px 4px;
+  flex: 1;
+}
+.fq-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+.fq-tag {
+  display: inline-block;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--blue-mid);
+  background: rgba(44,74,110,0.1);
+  border: 1px solid rgba(44,74,110,0.2);
+  border-radius: 8px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
+}
+.fq-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+
+/* ── Intro page diagram block ── */
+.article-content pre.diagram {
+  font-family: 'Noto Sans TC', 'Courier New', monospace;
+  font-size: 11.5px;
+  line-height: 1.9;
+  background: linear-gradient(135deg, #f5f0e8, #ede5d0);
+  border: 1px solid var(--parchment-dark);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 18px 16px;
+  overflow-x: auto;
+  margin: 20px 0;
+  color: var(--text);
+  white-space: pre;
+}
+
 </style>
 </head>
 <body>
@@ -1274,77 +1350,84 @@ blockquote.sermon-prayer::before {
     <input type="search" id="search-input" placeholder="搜尋景點或經文…" oninput="searchContent(this.value)">
   </div>
   <nav id="sidebar-nav">
-    <a class="sidebar-item active" onclick="showTab(0)" id="nav-0">
+    <a class="sidebar-item " onclick="showTab(0)" id="nav-0">
+      <span class="sidebar-item-icon">📖</span>
+      <span class="sidebar-item-text">
+        <span class="sidebar-item-date">考察指引</span>
+        <span class="sidebar-item-title">從廢墟到文本：處境解經指南</span>
+      </span>
+    </a>
+    <a class="sidebar-item " onclick="showTab(1)" id="nav-1">
       <span class="sidebar-item-icon">🌊</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月8日</span>
         <span class="sidebar-item-title">哥林多地峽與使徒的眼淚</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(1)" id="nav-1">
+    <a class="sidebar-item " onclick="showTab(2)" id="nav-2">
       <span class="sidebar-item-icon">🏛</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月9日</span>
         <span class="sidebar-item-title">雅典的心靈高地與哲學的交會</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(2)" id="nav-2">
+    <a class="sidebar-item " onclick="showTab(3)" id="nav-3">
       <span class="sidebar-item-icon">⛰</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月10日</span>
         <span class="sidebar-item-title">天空之城的靜修與末世之光的雙重奏</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(3)" id="nav-3">
+    <a class="sidebar-item " onclick="showTab(4)" id="nav-4">
       <span class="sidebar-item-icon">✝️</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月11日</span>
         <span class="sidebar-item-title">馬其頓呼聲的初熟果子</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(4)" id="nav-4">
+    <a class="sidebar-item " onclick="showTab(5)" id="nav-5">
       <span class="sidebar-item-icon">⚓</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月12日</span>
         <span class="sidebar-item-title">愛琴海的跨航與異象的迴聲</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(5)" id="nav-5">
+    <a class="sidebar-item " onclick="showTab(6)" id="nav-6">
       <span class="sidebar-item-icon">👑</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月13日</span>
         <span class="sidebar-item-title">撒但座位的對決與殉道者的無畏冠冕</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(6)" id="nav-6">
+    <a class="sidebar-item " onclick="showTab(7)" id="nav-7">
       <span class="sidebar-item-icon">📜</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月14日</span>
         <span class="sidebar-item-title">起初愛心的失落與聖言的永恆中樞</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(7)" id="nav-7">
+    <a class="sidebar-item " onclick="showTab(8)" id="nav-8">
       <span class="sidebar-item-icon">🏺</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月15日</span>
         <span class="sidebar-item-title">金砂的審判、不冷不熱的溫泉與殿中的柱子</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(8)" id="nav-8">
+    <a class="sidebar-item " onclick="showTab(9)" id="nav-9">
       <span class="sidebar-item-icon">🌋</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月16日</span>
         <span class="sidebar-item-title">在磐石與高原上的使徒凱歌與三一之光</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(9)" id="nav-9">
+    <a class="sidebar-item " onclick="showTab(10)" id="nav-10">
       <span class="sidebar-item-icon">🪨</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月17日</span>
         <span class="sidebar-item-title">岩窟中的修道院、巨石高台與深邃地底的信仰避難所</span>
       </span>
     </a>
-    <a class="sidebar-item " onclick="showTab(10)" id="nav-10">
+    <a class="sidebar-item " onclick="showTab(11)" id="nav-11">
       <span class="sidebar-item-icon">🕌</span>
       <span class="sidebar-item-text">
         <span class="sidebar-item-date">6月18日</span>
@@ -1358,6 +1441,221 @@ blockquote.sermon-prayer::before {
 <main id="main">
 <section class="tab-panel active" id="tab-0"0 role="tabpanel">
 <div class="day-hero">
+  <div class="day-hero-date">考察指引</div>
+  <span class="day-hero-emoji">📖</span>
+  <h1>從廢墟到文本：處境解經實地考察指南</h1>
+  <div class="day-hero-subtitle">幫助信徒進入新約作者的世界，重建我們的讀經視角</div>
+  <div class="day-hero-verse">「神的道是活潑的，是有功效的，比一切兩刃的劍更快。」（希伯來書 4:12）</div>
+</div>
+
+  <div class="inner-pane active" id="guide-pane-0">
+    <div class="article-content">
+
+<h1>📖 從廢墟到文本：希臘土耳其處境解經實地考察指南</h1>
+
+<h2>── 幫助信徒進入新約作者的世界（World Behind the Text），重建我們的讀經視角</h2>
+
+<h2 id="intro-s0">導言：為什麼我們需要這份指南？</h2>
+
+<p>當你踏上希臘與土耳其這片古老的土地時，你將看見宏偉的羅馬劇場、高聳的大理石神殿柱子，以及鋪設精美的古羅馬大道。然而，如果我們只滿足於「<strong>保羅曾經站在這裡</strong>」、「<strong>這是一座很大的神廟</strong>」或「<strong>這裡的風景真美</strong>」，那麼這次考察只是一次昂貴的「歷史觀光之旅」。</p>
+<p>聖地考察的核心目標，<strong>不是看古蹟，而是學習如何讀經</strong>。</p>
+<p>新約聖經並非寫於真空之中，而是孕育在一個充滿帝國政治張力、多元宗教競爭、希臘哲學思辨，以及嚴密社會階級的「希羅世界」（Greco-Roman World）中。當我們重建這些歷史與地理處境（The World Behind the Text）時，我們才會驚覺，新約作者所使用的詞彙、比喻、修辭與神學論證，竟然與他們的生存環境有著如此緊密的扣連。</p>
+<p>這份指南不是要塞給你一堆枯燥的考古數據，而是要<strong>送給你一套「解經框架」與「發問地圖」</strong>。當你站在廢墟前，請拿出這份指南，閉上眼，聽聽風聲，然後向這片土地發問。</p>
+
+<h2 id="intro-s1">🧭 第一部分：處境解經的「六維思維模型」</h2>
+
+<p>在每一個考察景點，請嘗試從以下六個維度，層層遞進地建立你的神學想像：</p>
+
+<pre class="diagram">┌────────────────────────────────────────────────────────┐
+│                  第六層：神學想像 (Biblical Theology)  │─── 終極關懷：這如何重構我今天的門徒生命與教會觀？
+└──────────────────────────────────────────┬─────────────┘
+   ┌───────────────────────────────────────┴─────────────┐
+   │         第五層：修辭與思想世界 (Rhetoric/Philosophy) │─── 思想對話：作者如何與當時的主流思想爭辯或對話？
+   └─────────────────────────────────┬───────────────────┘
+      ┌──────────────────────────────┴───────────────────┐
+      │            第四層：社會結構 (Social World)        │─── 社會現實：當時的階級、奴隸制、贊助人關係如何？
+      └────────────────────────┬─────────────────────────┘
+         ┌─────────────────────┴─────────────────────────┐
+         │               第三層：宗教世界 (Religion)      │─── 靈性競爭：福音如何挑戰當地的異教神明與迷信產業？
+         └─────────────────────┬─────────────────────────┘
+            ┌──────────────────┴─────────────────────────┐
+            │            第二層：政治帝國 (Empire)       │─── 權力結構：羅馬帝國與皇帝崇拜如何形塑政治張力？
+            └──────────────────┬─────────────────────────┘
+               ┌───────────────┴─────────────────────────┐
+               │         第一層：地理空間 (Geography)    │─── 物理基礎：山川、水源、交通如何塑造福音的流向？
+               └─────────────────────────────────────────┘</pre>
+
+<h3 id="intro-s1-1">第一層：地理（Geography）── 物理與神學的起點</h3>
+<p><strong>核心思維</strong>：地理環境不只是背景板，它決定了城市的功能、人口的流動，以及福音傳播的物理路徑。</p>
+<p><strong>發問範例</strong>：</p>
+<ul>
+<li>這裡的水源從哪裡來？這如何影響當地人的生存感？</li>
+<li>這個城市坐落在什麼交通要道上？為什麼使徒會選擇在這裡停留特別久？</li>
+<li>（例：<strong>哥林多</strong>不是一個孤立的城市，它是地中海東西方商業的「咽喉樞紐」；<strong>腓立比</strong>則卡在帝國的高速公路 <em>Via Egnatia</em>（以格那田大道）上，福音由此快速輻射至整個歐洲。）</li>
+</ul>
+
+<h3 id="intro-s1-2">第二層：政治（Empire）── 羅馬秩序下的神學宣告</h3>
+<p><strong>核心思維</strong>：新約聖經是在「羅馬和平」（Pax Romana）與強烈的「皇帝崇拜」（Imperial Cult）陰影下寫成的。許多我們習以為常的神學詞彙，在當時都具有極強的「政治顛覆性」。</p>
+<p><strong>發問範例</strong>：</p>
+<ul>
+<li>這裡有羅馬皇帝的神廟或雕像嗎？帝國如何在這裡宣傳它的權威？</li>
+<li>當保羅說「耶穌是主」（Kyrios Jesus）或「福音」（Evangelion，原指凱撒得勝的捷報）時，對當地效忠凱撒的人來說意味著什麼？</li>
+<li>（例：<strong>別迦摩</strong>是亞洲省皇帝崇拜的風暴中心，理解了這一點，你才能明白為什麼啟示錄稱那裡有「撒但座位」；宣稱「耶穌是主」在別迦摩不是一種類型化的宗教口號，而是一場隨時可能喪命的政治抗命。）</li>
+</ul>
+
+<h3 id="intro-s1-3">第三層：宗教世界（Religious World）── 靈性市場的激烈競爭</h3>
+<p><strong>核心思維</strong>：早期基督教面對的不是「無神論」，而是「極度多神」且與經濟利益深度捆綁的宗教市場。</p>
+<p><strong>發問範例</strong>：</p>
+<ul>
+<li>這裡最主要的神祇是誰？信奉它能為市民帶來什麼現實利益（健康、財富、安全）？</li>
+<li>當地的魔術、咒語或祭祀文化，如何滲透進信徒的日常生活？</li>
+<li>（例：在<strong>以弗所</strong>，亞底米神廟不只是宗教中心，更是全亞洲的「中央銀行」與朝聖經濟支柱。保羅的福音直接摧毀了銀匠的產業鏈，這讓使徒行傳 19 章的暴動從「神學衝突」還原為真實的「社會經濟抗爭」。）</li>
+</ul>
+
+<h3 id="intro-s1-4">第四層：社會結構（Social World）── 門徒群體的日常張力</h3>
+<p><strong>核心思維</strong>：早期教會成員不是生活在修道院裡，他們必須在羅馬的「贊助人制度」（Patronage）、奴隸制度、階級分明的社會結構中活出信仰。</p>
+<p><strong>發問範例</strong>：</p>
+<ul>
+<li>這個城市的貧富差距如何？社會階級是如何劃分的？</li>
+<li>當不同階級（奴隸、自由民、富商、貴族）的人在同一個客廳裡聚會時，會產生什麼張力？</li>
+<li>（例：在<strong>哥林多</strong>，聖餐問題〔林前 11 章〕的本質不是禮儀不對，而是富有的「贊助人」在豪宅內堂享受美食，而做奴隸的信徒只能在外面吃剩菜。保羅的責備是針對階級歧視與對「基督身體」的踐踏。）</li>
+</ul>
+
+<h3 id="intro-s1-5">第五層：修辭與思想世界（Rhetoric &amp; Philosophy）── 世界觀的碰撞</h3>
+<p><strong>核心思維</strong>：希臘羅馬精英階層以哲學（斯多亞派、伊比鳩魯派等）和修辭學為傲。保羅與新約作者在撰寫書信時，深度借用了這些思想體系，有時是借用，有時是徹底的顛覆。</p>
+<p><strong>發問範例</strong>：</p>
+<ul>
+<li>當地主流的哲學學派如何看待靈魂、身體與世界秩序？</li>
+<li>作者在這裡使用了什麼修辭手法來爭取聽眾？他如何顛覆了當時的「智慧」定義？</li>
+<li>（例：哥林多信徒追求希羅式的「雄辯與智慧」，這導致他們輕看保羅的「軟弱」。保羅在林前 1-2 章刻意採用「反修辭」的方式，宣講「釘十字架的基督」，正是對哥林多社會競爭文化的最強一擊。）</li>
+</ul>
+
+<h3 id="intro-s1-6">第六層：神學想像（Biblical Theology）── 廢墟對今天的詰問</h3>
+<p><strong>核心思維</strong>：這是最關鍵的收網。歷史地理的考察，最終必須轉化為對當代信仰實踐的「先知性批判」。</p>
+<p><strong>發問範例</strong>：</p>
+<ul>
+<li>這個古老城市所面臨的誘惑或危機，如何對應到我今天所處的現代城市？</li>
+<li>早期信徒如何在這片廢墟中，活出一種與帝國、異教迥然不同的「天國生活方式」？</li>
+<li>（例：在富裕繁榮、擁有發達溫泉與醫療科技的<strong>老底嘉</strong>，信徒陷入了「自我感覺良好」的屬靈溫吞。這迫使我們反思：在當代中產階級的富足生活中，我們是否也正處於同樣的屬靈危機中？）</li>
+</ul>
+
+<h2 id="intro-s2">❓ 第二部分：實地考察的「五個靈魂發問」</h2>
+
+<p>每當遊覽巴士停下，你站在任何一個遺址（如以弗所、哥林多、別迦摩）前，請拿起筆記本，<strong>雷打不動地回答以下五個問題</strong>：</p>
+
+<div class="five-questions">
+  <div class="fq-item">
+    <div class="fq-num">01</div>
+    <div class="fq-content">
+      <div class="fq-title">我們在哪裡？<span class="fq-tag">地理空間的發問</span></div>
+      <div class="fq-body"><em>觀察</em>：山、海、路、水。</div>
+    </div>
+  </div>
+  <div class="fq-item">
+    <div class="fq-num">02</div>
+    <div class="fq-content">
+      <div class="fq-title">當時發生了什麼？<span class="fq-tag">歷史政治的發問</span></div>
+      <div class="fq-body"><em>尋找</em>：神廟、紀念碑、銘文、衙門（Bema）。</div>
+    </div>
+  </div>
+  <div class="fq-item">
+    <div class="fq-num">03</div>
+    <div class="fq-content">
+      <div class="fq-title">這裡的人是如何生活的？<span class="fq-tag">社會宗教的發問</span></div>
+      <div class="fq-body"><em>感受</em>：市集（Agora）、劇場、公共浴池、社會階級。</div>
+    </div>
+  </div>
+  <div class="fq-item">
+    <div class="fq-num">04</div>
+    <div class="fq-content">
+      <div class="fq-title">哪段經文是在這個背景下產生的？<span class="fq-tag">文本與修辭的對接</span></div>
+      <div class="fq-body"><em>翻閱</em>：將眼前的廢墟與特定的經文進行互文閱讀。</div>
+    </div>
+  </div>
+  <div class="fq-item">
+    <div class="fq-num">05</div>
+    <div class="fq-content">
+      <div class="fq-title">如果不知道這個背景，我們最容易誤解什麼？<span class="fq-tag">解經與神學的重構</span></div>
+      <div class="fq-body"><em>反思</em>：我們過去是否有過脫離處境、一廂情願的「屬靈化讀經」？</div>
+    </div>
+  </div>
+</div>
+
+<h2 id="intro-s3">🏛 第三部分：大師級實地解經示範 ── 雅典「亞略巴古」</h2>
+
+<p>現在，讓我們跟隨保羅的腳步，實際運用這套「六維思維」與「五個發問」，來剖析<strong>雅典亞略巴古（使徒行傳 17:16-34）</strong>。</p>
+
+<div class="verse-popup" id="vc_徒_17_demo"><div class="verse-popup-header" onclick="toggleVerse('vc_徒_17_demo')"><span class="verse-ref-icon">✦</span><span class="verse-ref-label">📖 使徒行傳 17:16, 18-19, 22-23</span><span class="verse-toggle-icon">▼</span></div><div class="verse-popup-body">保羅在雅典等候他們的時候，看見滿城都是偶像，就心裡著急……還有斯多亞和伊比鳩魯兩門的學士，與他爭論……他們就把他帶到亞略巴古，說：「你所講的這個新道，我們也可以知道嗎？」……保羅站在亞略巴古當中，說：「眾位雅典人哪，我看你們凡事很敬畏鬼神。我遊行的時候，觀看你們所敬拜的，遇見一座壇，上面寫著『給未識之神』……」</div></div>
+
+<h3 id="intro-s3-0">🏛 亞略巴古實地考察思維拆解</h3>
+
+<pre class="diagram">               ┌─────────────────────────────────────┐
+               │          雅典衛城 (Acropolis)        │
+               │   [巴特農神殿 / 巨大的雅典娜青銅像]   │
+               └──────────────────┬──────────────────┘
+                                  │ 俯瞰 / 對立
+               ┌──────────────────┴──────────────────┐
+               │       亞略巴古 (Areopagus Rock)     │ ── 保羅在此對抗希羅思想菁英
+               │     [光禿的石灰岩 / 司法與權力機構]    │
+               └──────────────────┬──────────────────┘
+                                  │ 步行攀爬
+               ┌──────────────────┴──────────────────┐
+               │          古市集 (Ancient Agora)     │ ── 斯多亞與伊比鳩魯學者辯論之處
+               │    [熱鬧的商業、宗教與哲學對話中心]   │
+               └─────────────────────────────────────┘</pre>
+
+<h4 id="intro-s3-1">1. 我們在哪裡？（第一層：地理空間 ── 仰望與俯瞰的視覺神學）</h4>
+
+<p><strong>實地空間感</strong>：亞略巴古（Areopagus，意為「阿瑞斯之丘」）是一座位於雅典衛城（Acropolis）西北下方的裸露紅褐色大理石山丘。當你站在亞略巴古光禿禿的岩石上，往南看，是高高在上、雄偉無比的雅典衛城，其上坐落著巴特農神殿（Parthenon）；往北看，則是繁忙喧囂、充滿商販與神廟的雅典古市集（Agora）。</p>
+<p><strong>地理對福音的塑造</strong>：保羅並非在密室裡寫作。他先是在北邊平地的<strong>古市集（Agora）與斯多亞和伊比鳩魯的學者進行街頭辯論（徒 17:17）。當爭論升級，他被「帶上」了地勢更高的亞略巴古山丘</strong>。當保羅站在這塊岩石上，他的視線會直接對準那座主導整個雅典天際線的巴特農神殿。保羅指向那座遮天蔽日的神殿，說：<strong>「創造宇宙和其中萬物的神，既是天地的主，就不住人手所造的殿（<em>cheiropoietois naois</em>）。」</strong>（24節）</p>
+<p>💡 <strong>實地震撼</strong>：如果你只是在客廳讀這段話，它只是一句神學公式；但當你站在亞略巴古，看著頭頂上那座精美絕倫、耗費無數黃金大理石建成的巴特農神殿時，你才會明白保羅這句話是何等具有衝擊力的現場宣告！</p>
+
+<h4 id="intro-s3-2">2. 當時發生了什麼？（第二層：政治帝國 ── 凱撒陰影下的「自由雅典」）</h4>
+
+<p><strong>歷史處境</strong>：在第一世紀，雅典雖然失去了古典時期的軍事帝國地位，但它被羅馬帝國賜予了「自由城市」（Free City）的特殊地位。羅馬征服者崇拜希臘文化，因此雅典成為了羅馬帝國的「文化與大學城」。羅馬的權貴（包括凱撒和將軍們）紛紛在雅典建造自己的紀念碑和雕像。</p>
+<p><strong>帝國與神學的碰撞</strong>：在亞略巴古不遠處，有為凱撒和羅馬女神（Roma）建造的神殿。保羅在這裡感受到的「滿城都是偶像」（16節），不僅僅是古希臘的神祇（宙斯、雅典娜），還包括了將帝國權力神格化的羅馬皇帝崇拜。當保羅宣講一位「將來要用公義審判天下」的「那一人（耶穌）」（31節）時，這對於習慣了羅馬帝國司法主權與凱撒作為「世界審判者」的雅典精英來說，是一次極具顛覆性的政治宣告。</p>
+
+<h4 id="intro-s3-3">3. 這裡的人如何生活？（第三、四層：宗教與社會結構 ── 頂層精英的「聽訟會」）</h4>
+
+<p><strong>社會與宗教現實</strong>：「亞略巴古」不僅僅是一座山丘的名字，它更是雅典最古老、最受尊敬的<strong>「司法與教育議會」（Council of the Areopagus）</strong>。這個議會由雅典的頂層貴族、前執政官組成，負責管理雅典的宗教、教育、法律以及對外來新神祇的審查。保羅不是在對普通的街頭小販做培靈會。他是在接受<strong>雅典最高知識分子與權力階層的聽證與審訊</strong>！</p>
+<p><strong>「給未識之神」祭壇的真實脈絡</strong>：保羅引用了雅典人隨處可見的「給未識之神（<em>Agnostoi Theo</em>）」的祭壇（23節）。歷史學家保薩尼亞斯（Pausanias）與第歐根尼·拉爾修（Diogenes Laërtius）都證實，雅典確實有這樣的祭壇。主前六世紀，雅典曾遭遇大瘟疫，克里特先知埃庇米尼得斯（Epimenides）建議釋放羊群在停下處獻祭；若無神廟，則立無名祭壇。</p>
+<p>💡 <strong>實地震撼</strong>：保羅展現了驚人的「跨文化溝通技巧」。他沒有像在猶太會堂那樣狂背舊約聖經（因為希臘人根本不信舊約），而是直接「借景解經」，將雅典人出於<strong>恐懼與迷信</strong>而立的「未識之神祭壇」，重新定義為那位「創造天地、主動尋找人類的獨一真神」。</p>
+
+<h4 id="intro-s3-4">4. 修辭與思想世界（第五層：斯多亞 VS 伊比鳩魯 VS 復活觀）</h4>
+
+<p><strong>哲學背景</strong>：保羅在亞略巴古面對兩大哲學陣營：</p>
+<ul>
+<li><strong>伊比鳩魯派（Epicureans）</strong>：唯物主義者。他們認為神明若存在，也是遠離人間、不干涉世事的；人死後靈魂消散，因此人生終極目的是追求「無痛苦與心靈寧靜」（Ataraxia）。</li>
+<li><strong>斯多亞派（Stoics）</strong>：泛神論與決定論者。他們認為「理性」（Logos）充滿宇宙，萬物皆神；人應當順應天命，克己自律。</li>
+</ul>
+<p><strong>保羅的高超修辭與世界觀顛覆</strong>：保羅在演講中完美地借用了他們的語言：</p>
+<ul>
+<li>他引用了斯多亞派詩人阿拉托斯（Aratus）在《天象論》中的名言：<strong>「我們也是祂所生的」</strong>（28節b）。</li>
+<li>他讚賞雅典人「凡事敬畏鬼神（高度宗教化）」（22節）。</li>
+</ul>
+<p>然而，保羅在最後關頭，對這兩種哲學進行了致命的顛覆：</p>
+<ul>
+<li>針對伊比鳩魯派冷漠的上帝觀，保羅宣告：神「賞賜生命、氣息、萬物給萬人」，「離我們各人不遠」（25, 27-28節）。</li>
+<li>針對斯多亞派的萬物皆神，保羅宣告：神是高於宇宙的創造主，歷史有其終點（審判）（24, 31節）。</li>
+</ul>
+<p>最猛烈的一擊在於最後一話 ── <strong>死人復活（<em>Anastasis nekron</em>）</strong>（32節）。在希臘世界觀中，<strong>肉體（Soma）是靈魂的監牢（Sema）</strong>。死後靈魂得以解脫，回到純粹的靈界，是希臘哲學最完美的結局。復活 ── 讓靈魂重新回到血肉之軀中 ── 在希臘人聽來簡直是荒謬的退步！當保羅在亞略巴古的司法議會面前高聲宣告「耶穌從死裡復活」時，他是在公開挑戰雅典傳承了數百年的核心世界觀。</p>
+
+<h4 id="intro-s3-5">5. 神學想像（第六層 ── 雅典遺址對當代的先知性詰問）</h4>
+
+<p><strong>我們習以為常的讀法</strong>：許多人認為保羅在雅典「失敗了」，因為信的人很少（只有丟尼修、達馬哩等幾個人，徒 17:34），並認為保羅後來去哥林多時說「不知道別的，只知道耶穌基督並祂釘十字架」（林前 2:2），是保羅在雅典「用哲學解經失敗後的反省」。</p>
+<p><strong>處境解經的重構與顛覆</strong>：這是一個巨大的神學誤解！</p>
+<ol>
+<li><strong>福音在最高知識殿堂插旗</strong>：在亞略巴古這個掌管宗教審查的最高議會中，保羅宣講了「死人復活」，而議會的成員丢尼修（Dionysius）竟然相信了。這不是失敗，而是在帝國最頑固的思想堡壘中取得的重大勝利！</li>
+<li><strong>跨文化宣教的範本</strong>：保羅展示了如何不使用「基督教內部行話」（Christian Jargon），而是進入對方的文化、地理與哲學體系中，找到共同的切入點，然後在核心之處（復活與審判）給予致命的顛覆。</li>
+<li><strong>當代詰問</strong>：當你今天站在空無一人的亞略巴古裸岩上，看著周圍依然聳立的巴特農神殿廢墟，請閉上眼發問：「今天，我們所處的世界同樣充滿了『給未識之神』的祭壇 ── 財富、科技、健康、學術。我們是否像保羅一樣，能夠看穿這些現代偶像背後的集體恐懼，並在我們時代的『亞略巴古』（大學、職場、社交媒體）中，用現代人能聽懂的語言，勇敢地宣告基督那顛覆性的福音？」</li>
+</ol>
+
+    </div>
+  </div>
+</section>
+
+<section class="tab-panel " id="tab-1"1 role="tabpanel">
+<div class="day-hero">
   <div class="day-hero-date">Day 1 · 6月8日</div>
   <span class="day-hero-emoji">🌊</span>
   <h1>哥林多地峽與使徒的眼淚</h1>
@@ -1365,15 +1663,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「願賜平安的主隨時隨事親自給你們平安。願主與你們眾人同在。」（帖後 3:16）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-0">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(0,'guide')" id="guide-btn-0">
+  <div class="inner-tabs" id="inner-tabs-1">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(1,'guide')" id="guide-btn-1">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(0,'sermon')" id="sermon-btn-0">
+    <button class="inner-tab-btn" onclick="switchInnerTab(1,'sermon')" id="sermon-btn-1">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-0">
+  <div class="inner-pane active" id="guide-pane-1">
     <div class="article-content">
 
 <h1>📅 6月8日 考察指引：哥林多地峽與使徒的眼淚</h1>
@@ -1920,14 +2218,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「天父，感謝祢將我遷入祢愛子的國度。求祢賜我智慧，使我在地上作一個守法、追求公義的公民，但時刻不忘我天上國民（Politeuma）的榮耀身份。當世俗的偶像要求我低頭時，賜我使徒般的勇氣，單單向祢俯伏敬拜。阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-0">
+  <div class="inner-pane" id="sermon-pane-1">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 1 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('0', 'sc-s8_corinth')">
+    <div class="sermon-index-item" onclick="jumpToSermon('1', 'sc-s8_corinth')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">在碎石堆中宣告無能的權能</div>
@@ -1940,7 +2238,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-1"1 role="tabpanel">
+<section class="tab-panel " id="tab-2"2 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 2 · 6月9日</div>
   <span class="day-hero-emoji">🏛</span>
@@ -1949,15 +2247,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「因為我們眾人必要在基督審判台前顯露出來。」（林後 5:10）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-1">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(1,'guide')" id="guide-btn-1">
+  <div class="inner-tabs" id="inner-tabs-2">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(2,'guide')" id="guide-btn-2">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(1,'sermon')" id="sermon-btn-1">
+    <button class="inner-tab-btn" onclick="switchInnerTab(2,'sermon')" id="sermon-btn-2">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-1">
+  <div class="inner-pane active" id="guide-pane-2">
     <div class="article-content">
 
 <h1>📅 6月9日 考察指引：雅典的心靈高地與哲學的交會</h1>
@@ -2456,14 +2754,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「天父，祢是獨一的造物主。這滿山的巨石、這浩瀚的星空，都是祢永能與神性的無聲見證。當我今晚安歇在卡蘭巴卡的山谷中時，求祢讓我的心深深地降服在祢的偉大之中。求祢成為我生命中那塊永不動搖的萬古磐石，讓我在明日前訪天空之城的旅程中，能更深地與祢相遇。奉主耶穌基督的聖名求，阿們。」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-1">
+  <div class="inner-pane" id="sermon-pane-2">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 1 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('1', 'sc-s9_athens')">
+    <div class="sermon-index-item" onclick="jumpToSermon('2', 'sc-s9_athens')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">顛覆雅典的未識之神</div>
@@ -2476,7 +2774,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-2"2 role="tabpanel">
+<section class="tab-panel " id="tab-3"3 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 3 · 6月10日</div>
   <span class="day-hero-emoji">⛰</span>
@@ -2485,15 +2783,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「你們所看見的，要寫在書上，寄給亞細亞的七個教會。」（啟 1:11）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-2">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(2,'guide')" id="guide-btn-2">
+  <div class="inner-tabs" id="inner-tabs-3">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(3,'guide')" id="guide-btn-3">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(2,'sermon')" id="sermon-btn-2">
+    <button class="inner-tab-btn" onclick="switchInnerTab(3,'sermon')" id="sermon-btn-3">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-2">
+  <div class="inner-pane active" id="guide-pane-3">
     <div class="article-content">
 
 <h1>📅 6月10日 考察指引：天空之城的靜修與末世之光的雙重奏</h1>
@@ -3096,14 +3394,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「天父，感謝祢賦予我雙手的力量與做工的機會。求祢聖化我每一天的體力與腦力勞動。讓我不再把工作視為重擔，而是視為一場在日常崗位上榮耀祢的敬拜。求祢保守我，使我每天以警醒、安靜、踏實的步伐，預備迎接祢的榮耀顯現。蒙主耶穌基督聖名求，阿們。」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-2">
+  <div class="inner-pane" id="sermon-pane-3">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 2 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('2', 'sc-s10_kalam')">
+    <div class="sermon-index-item" onclick="jumpToSermon('3', 'sc-s10_kalam')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">在卡蘭巴卡巨石下的宣告</div>
@@ -3112,7 +3410,7 @@ blockquote.sermon-prayer::before {
         <div class="sii-verse">📖 使徒行傳 17:14-15；哥林多後書 4:5-10</div>
       </div>
       <div class="sii-arrow">→</div>
-    </div><div class="sermon-index-item" onclick="jumpToSermon('2', 'sc-s10_thess')">
+    </div><div class="sermon-index-item" onclick="jumpToSermon('3', 'sc-s10_thess')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">顛覆天下的「另一個王」</div>
@@ -3125,7 +3423,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-3"3 role="tabpanel">
+<section class="tab-panel " id="tab-4"4 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 4 · 6月11日</div>
   <span class="day-hero-emoji">✝️</span>
@@ -3134,15 +3432,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「保羅說：我是猶太人，生在基利家的大數，從小在這城裡長大。」（徒 22:3）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-3">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(3,'guide')" id="guide-btn-3">
+  <div class="inner-tabs" id="inner-tabs-4">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(4,'guide')" id="guide-btn-4">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(3,'sermon')" id="sermon-btn-3">
+    <button class="inner-tab-btn" onclick="switchInnerTab(4,'sermon')" id="sermon-btn-4">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-3">
+  <div class="inner-pane active" id="guide-pane-4">
     <div class="article-content">
 
 <h1>📅 6月11日 考察指引：馬其頓呼聲的初熟果子</h1>
@@ -3811,14 +4109,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「萬王之王、萬主之主耶穌基督，祢是那本有神的形像、卻為我主動虛己、順服以至於死在十字架上的救主。謝謝祢塗抹了我生命中血紅色的罪證，賜予我比雪更白的全新生命。主啊，求祢保守我，讓我在地上生活的每一天，不忘自己天國公民（Politeuma）的榮耀身份。當世俗的權力、金錢與名利誘惑我時，讓我以祢的心為心，在謙卑與捨己中，活出祢天國子民的聖潔與尊榮。直到祢Parousia榮耀降臨之日。奉主耶穌基督無比聖潔的尊名求，阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-3">
+  <div class="inner-pane" id="sermon-pane-4">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 1 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('3', 'sc-s11_phil')">
+    <div class="sermon-index-item" onclick="jumpToSermon('4', 'sc-s11_phil')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">顛覆羅馬秩序的十字架</div>
@@ -3831,7 +4129,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-4"4 role="tabpanel">
+<section class="tab-panel " id="tab-5"5 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 5 · 6月12日</div>
   <span class="day-hero-emoji">⚓</span>
@@ -3840,15 +4138,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「馬其頓人出現，懇求他說，請你過來幫助我們。」（徒 16:9）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-4">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(4,'guide')" id="guide-btn-4">
+  <div class="inner-tabs" id="inner-tabs-5">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(5,'guide')" id="guide-btn-5">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(4,'sermon')" id="sermon-btn-4">
+    <button class="inner-tab-btn" onclick="switchInnerTab(5,'sermon')" id="sermon-btn-5">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-4">
+  <div class="inner-pane active" id="guide-pane-5">
     <div class="article-content">
 
 <h1>📅 6月12日 考察指引：愛琴海的跨航與異象的迴聲</h1>
@@ -4412,14 +4710,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「萬軍之耶和華，祢是歷史與宇宙唯一的君王。看著這片由帝國血淚染紅的達達尼爾海峽，我的心深深地戰慄於人類罪惡與虛榮的毀滅性代價。主啊，求祢保守我的靈魂，不讓我將終極的盼望與效忠寄託在任何短暫的世俗帝國與政治力量之上。求祢成為我生命中那塊唯一不動搖的萬古磐石！讓我以無比警醒、安靜且充滿了聖潔指望的腳步，在我的日常生活中盡忠職守，熱切地預備迎接祢永恆和平天國的降臨。奉主耶穌基督那超乎萬名之上、無比聖潔的尊名求，阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-4">
+  <div class="inner-pane" id="sermon-pane-5">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 1 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('4', 'sc-s12_troas')">
+    <div class="sermon-index-item" onclick="jumpToSermon('5', 'sc-s12_troas')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">顛覆帝國史詩的兩次啟航</div>
@@ -4432,7 +4730,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-5"5 role="tabpanel">
+<section class="tab-panel " id="tab-6"6 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 6 · 6月13日</div>
   <span class="day-hero-emoji">👑</span>
@@ -4441,15 +4739,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「我知道你的行為，你在那撒但座位之處，仍然持守我的名。」（啟 2:13<div class="verse-popup" id="vc_啟_2_13"><div class="verse-popup-header" onclick="toggleVerse('vc_啟_2_13')"><span class="verse-ref-icon">✦</span><span class="verse-ref-label">📖 啟示錄 2:13</span><span class="verse-toggle-icon">▼</span></div><div class="verse-popup-body"><span class="vnum">13</span>我知道你的居所，就是有撒但座位之處；當我忠心的見證人安提帕在你們中間、在撒但所住的地方被殺之時，你還堅守我的名，沒有棄絕我的道。</div></div>）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-5">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(5,'guide')" id="guide-btn-5">
+  <div class="inner-tabs" id="inner-tabs-6">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(6,'guide')" id="guide-btn-6">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(5,'sermon')" id="sermon-btn-5">
+    <button class="inner-tab-btn" onclick="switchInnerTab(6,'sermon')" id="sermon-btn-6">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-5">
+  <div class="inner-pane active" id="guide-pane-6">
     <div class="article-content">
 
 <h1>📅 6月13日 考察指引：撒但座位的對決與殉道者的無畏冠冕</h1>
@@ -5159,14 +5457,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「那死過又活了、掌管生死終局的主耶穌，祢是士每拿受苦教會的安慰，是聖坡旅甲一生效忠的救主君王。看著這座大理石拱廊的廢墟，我為我心靈深處對物質財富的貪戀、對貧窮的恐懼而向祢徹底認罪悔改！求祢重構我的財富神學與生命價值觀，讓我在世俗的貧窮、挫折與排斥中，看清我在基督裡早已擁有的永恆屬靈巨富。賜我至死忠心的膽量與忍耐！當烈火與苦難臨到我的生命時，讓我以坡旅甲為榜樣，無懼肉體的第一次死亡，單單凝望著祢在天國施恩座前，正為我親手預備的那頂永不凋謝的生命冠冕（Stephanos）。阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-5">
+  <div class="inner-pane" id="sermon-pane-6">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 2 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('5', 'sc-s13_perg')">
+    <div class="sermon-index-item" onclick="jumpToSermon('6', 'sc-s13_perg')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">別迦摩現場宣講</div>
@@ -5175,7 +5473,7 @@ blockquote.sermon-prayer::before {
         <div class="sii-verse">📖 啟示錄 2:12-17；使徒行傳 19:10</div>
       </div>
       <div class="sii-arrow">→</div>
-    </div><div class="sermon-index-item" onclick="jumpToSermon('5', 'sc-s13_smyr')">
+    </div><div class="sermon-index-item" onclick="jumpToSermon('6', 'sc-s13_smyr')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">士每拿市集的十架神學</div>
@@ -5188,7 +5486,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-6"6 role="tabpanel">
+<section class="tab-panel " id="tab-7"7 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 7 · 6月14日</div>
   <span class="day-hero-emoji">📜</span>
@@ -5197,15 +5495,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「你要寫信給以弗所教會的使者，說……你把你起初的愛心離棄了。」（啟 2:1,4）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-6">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(6,'guide')" id="guide-btn-6">
+  <div class="inner-tabs" id="inner-tabs-7">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(7,'guide')" id="guide-btn-7">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(6,'sermon')" id="sermon-btn-6">
+    <button class="inner-tab-btn" onclick="switchInnerTab(7,'sermon')" id="sermon-btn-7">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-6">
+  <div class="inner-pane active" id="guide-pane-7">
     <div class="article-content">
 
 <h1>📅 6月14日 考察指引：起初愛心的失落與聖言的永恆中樞</h1>
@@ -5867,14 +6165,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「那死過又活了、直活到永永遠遠的羔羊耶穌基督，祢是那帶領使徒約翰穿透孤島與黑夜、看見天國終極輝煌的救主君王。看著這片深邃的愛琴海，我的心深深地降服在祢那將海浪平息為玻璃海的至高主權中。主啊，不論我今天面臨怎樣的孤獨、迫害、疾病與靈性至暗，求祢讓我那疲憊的雙眼，能穿透這世俗的波濤，凝望著祢那充滿了烈火與水晶光輝的永恆玻璃海。讓我至死忠心，直到與萬民一同站立在祢寶座前彈琴歌唱的那一天。奉主耶穌基督那無比榮耀、聖潔、永恆的尊名求，阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-6">
+  <div class="inner-pane" id="sermon-pane-7">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 1 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('6', 'sc-s14_eph')">
+    <div class="sermon-index-item" onclick="jumpToSermon('7', 'sc-s14_eph')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">顛覆帝國與神廟的福音</div>
@@ -5887,7 +6185,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-7"7 role="tabpanel">
+<section class="tab-panel " id="tab-8"8 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 8 · 6月15日</div>
   <span class="day-hero-emoji">🏺</span>
@@ -5896,15 +6194,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「老底嘉教會的使者，你說我是富足的，已發了財，一樣都不缺；卻不知道你是那困苦、可憐、貧窮、瞎眼、赤身的。」（啟 3:17<div class="verse-popup" id="vc_啟_3_17"><div class="verse-popup-header" onclick="toggleVerse('vc_啟_3_17')"><span class="verse-ref-icon">✦</span><span class="verse-ref-label">📖 啟示錄 3:17</span><span class="verse-toggle-icon">▼</span></div><div class="verse-popup-body"><span class="vnum">17</span>你說：我是富足的，已經發了財，一樣都不缺；卻不知道你是那困苦、可憐、貧窮、瞎眼、赤身的。</div></div>）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-7">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(7,'guide')" id="guide-btn-7">
+  <div class="inner-tabs" id="inner-tabs-8">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(8,'guide')" id="guide-btn-8">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(7,'sermon')" id="sermon-btn-7">
+    <button class="inner-tab-btn" onclick="switchInnerTab(8,'sermon')" id="sermon-btn-8">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-7">
+  <div class="inner-pane active" id="guide-pane-8">
     <div class="article-content">
 
 <h1>📅 6月15日 考察指引：金砂的審判、不冷不熱的溫泉與殿中的柱子</h1>
@@ -6711,14 +7009,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「天父，祢是創造這棉花堡純白地貌與神聖醫治溫泉的造物主上帝。今晚，當我安歇在希拉波立的泉水旁時，求祢讓我的肉體得著康復，更求祢聖靈的火，重新燃燒我這顆因世界而漸漸變得不冷不熱的心靈！讓我看著使徒腓立比在山頂倒釘十字架的信仰豐碑，賜我同樣至死不渝的Nike得勝力量。讓我的一生，在祢那水晶般平靜、火攙雜的玻璃海上，與萬民共同彈琴歌唱。奉主耶穌基督那誠信真實、永活的君王聖名求，阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-7">
+  <div class="inner-pane" id="sermon-pane-8">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 3 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('7', 'sc-s15_sard')">
+    <div class="sermon-index-item" onclick="jumpToSermon('8', 'sc-s15_sard')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">在成功的廢墟中儆醒</div>
@@ -6727,7 +7025,7 @@ blockquote.sermon-prayer::before {
         <div class="sii-verse">📖 啟示錄 3:1-6；使徒行傳 19:10；哥林多後書 4:7-10</div>
       </div>
       <div class="sii-arrow">→</div>
-    </div><div class="sermon-index-item" onclick="jumpToSermon('7', 'sc-s15_phil')">
+    </div><div class="sermon-index-item" onclick="jumpToSermon('8', 'sc-s15_phil')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">在非拉鐵非的震盪中</div>
@@ -6736,7 +7034,7 @@ blockquote.sermon-prayer::before {
         <div class="sii-verse">📖 啟示錄 3:7-13；哥林多後書 4:7</div>
       </div>
       <div class="sii-arrow">→</div>
-    </div><div class="sermon-index-item" onclick="jumpToSermon('7', 'sc-s15_laod')">
+    </div><div class="sermon-index-item" onclick="jumpToSermon('8', 'sc-s15_laod')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">顛覆自我足能的福音</div>
@@ -6749,7 +7047,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-8"8 role="tabpanel">
+<section class="tab-panel " id="tab-9"9 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 9 · 6月16日</div>
   <span class="day-hero-emoji">🌋</span>
@@ -6758,15 +7056,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「那美好的仗我已經打過了，當跑的路我已經跑盡了，所信的道我已經守住了。」（提後 4:7）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-8">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(8,'guide')" id="guide-btn-8">
+  <div class="inner-tabs" id="inner-tabs-9">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(9,'guide')" id="guide-btn-9">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(8,'sermon')" id="sermon-btn-8">
+    <button class="inner-tab-btn" onclick="switchInnerTab(9,'sermon')" id="sermon-btn-9">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-8">
+  <div class="inner-pane active" id="guide-pane-9">
     <div class="article-content">
 
 <h1>📅 6月16日 考察指引：在磐石與高原上的使徒凱歌與三一之光</h1>
@@ -7209,14 +7507,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「獨一本體、三位格共融的聖父、聖子、聖靈三一真神，我尊崇祢！謝謝祢派遣了卡帕多加的三位僕人，為我們在歷史的至暗廢墟中，守護住了三位一體真理的純潔黃金。求祢將我接納進入這場永恆愛的互滲共融（Perichoresis）之中。讓我的生命、我的家庭與我的教會，都能在祢這無私、均等、聖潔的聖愛中聯絡得合式，漸漸活出祢天國那和諧、得勝的榮耀版圖。奉三一真神耶穌基督無比神聖的尊名求，阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-8">
+  <div class="inner-pane" id="sermon-pane-9">
   <div class="sermon-index-hero">
     <div class="sermon-index-label">✦ 本日現場講章 · Sermons</div>
     <div class="sermon-index-count">共 1 篇講章</div>
     <div class="sermon-index-hint">點擊講章，將跳轉至考察指引中該景點的對應位置</div>
   </div>
   <div class="sermon-index-list">
-    <div class="sermon-index-item" onclick="jumpToSermon('8', 'sc-s16_icon')">
+    <div class="sermon-index-item" onclick="jumpToSermon('9', 'sc-s16_icon')">
       <div class="sii-icon">✝️</div>
       <div class="sii-text">
         <div class="sii-title">顛覆秩序的恩惠之道</div>
@@ -7229,7 +7527,7 @@ blockquote.sermon-prayer::before {
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-9"9 role="tabpanel">
+<section class="tab-panel " id="tab-10"10 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 10 · 6月17日</div>
   <span class="day-hero-emoji">🪨</span>
@@ -7238,15 +7536,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「他們就照著所宣傳的下水，從那裡到了安提阿。」（徒 14:26）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-9">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(9,'guide')" id="guide-btn-9">
+  <div class="inner-tabs" id="inner-tabs-10">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(10,'guide')" id="guide-btn-10">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(9,'sermon')" id="sermon-btn-9">
+    <button class="inner-tab-btn" onclick="switchInnerTab(10,'sermon')" id="sermon-btn-10">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-9">
+  <div class="inner-pane active" id="guide-pane-10">
     <div class="article-content">
 
 <h1>📅 6月17日 考察指引：岩窟中的修道院、巨石高台與深邃地底的信仰避難所</h1>
@@ -7623,14 +7921,14 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「獨一、同質、互滲共融的三一真神，我的聖父、聖子與聖靈。謝謝祢一路上用祢那恩典的翅膀，護理、保守並帶領着我們完成了這段史詩般的保羅與七教會考察。當我們今晚安息在歐亞大平原與海峽交界處時，求祢預備我們的心靈。讓我們在明日前訪藍廟、聖蘇菲亞大教堂與考古博物館的終極旅程中，能看清人類帝國興衰的政治神學，單單將我們生命、主權與靈魂的護照，效忠並呈獻給祢這位即將在玻璃海上耀眼再臨的萬王之王。奉主耶穌基督那超乎萬名之上、無比神聖尊榮的名求，阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-9">
+  <div class="inner-pane" id="sermon-pane-10">
   <div class="sermon-no-content">
     <div class="no-sermon-icon">✍️</div>
     <p>本日現場講章<br>即將加入</p>
   </div>
 </div>
 </section>
-<section class="tab-panel " id="tab-10"10 role="tabpanel">
+<section class="tab-panel " id="tab-11"11 role="tabpanel">
 <div class="day-hero">
   <div class="day-hero-date">Day 11 · 6月18日</div>
   <span class="day-hero-emoji">🕌</span>
@@ -7639,15 +7937,15 @@ blockquote.sermon-prayer::before {
   <div class="day-hero-verse">「萬王之王，萬主之主。」（啟 19:16）</div>
 </div>
 
-  <div class="inner-tabs" id="inner-tabs-10">
-    <button class="inner-tab-btn active" onclick="switchInnerTab(10,'guide')" id="guide-btn-10">
+  <div class="inner-tabs" id="inner-tabs-11">
+    <button class="inner-tab-btn active" onclick="switchInnerTab(11,'guide')" id="guide-btn-11">
       <span class="tab-icon">🗺</span>考察指引
     </button>
-    <button class="inner-tab-btn" onclick="switchInnerTab(10,'sermon')" id="sermon-btn-10">
+    <button class="inner-tab-btn" onclick="switchInnerTab(11,'sermon')" id="sermon-btn-11">
       <span class="tab-icon">✝️</span>現場講章
     </button>
   </div>
-  <div class="inner-pane active" id="guide-pane-10">
+  <div class="inner-pane active" id="guide-pane-11">
     <div class="article-content">
 
 <h1>📅 6月18日 考察指引：帝國中樞的雙城交響與聖言的泥板遺澤</h1>
@@ -8379,7 +8677,7 @@ blockquote.sermon-prayer::before {
 <p><strong>禱告</strong>：<em>「萬王之王、萬主之主、神聖智慧的主耶穌基督。當我完成了這場史詩般的保羅行蹤與啟示錄七教會考察、站在君士坦丁堡這蔚藍的海峽與大教堂的穹頂下、向這片聖地發出最後的深情告別時，我的雙手要向祢的寶座徹底高舉！ 主啊！謝謝祢一路上用祢那恩典的翅膀，護理、保守並聖化了我每一步的腳印。 這滿城的废墟、這聖殿的石碑、這地底下的暗室，都在向我宣告：世界與世俗的帝國終將廢去，唯有祢十字架與復活的福音，要直立定到永永遠遠！ 求祢將祢在愛琴海畔、在加拉太高原、在君士坦丁堡大教堂內向我啟示的聖言，徹底刻在我有血有肉的心碑上！讓我回到我的日常職場、回到我的家庭與我自己的世代中時，依然能披戴祢的白衣，攻克己身，安靜做工，在世俗的阿哥拉中活出祢天國子民（Politeuma）的無上尊嚴！ 我將我的一生、我的家庭、我的事奉與我的靈魂，完全向祢臣服、向祢奉獻。直等到祢Parousia荣耀降臨、在永恆的玻璃海上與萬民彈琴歌唱的那一天！ 奉主耶穌基督那超乎萬名之上、萬膝必跪拜、萬口必承認、無比神聖尊貴且永恆的君王聖名求，阿們！阿們！阿們！」</em></p>
 </div>
   </div>
-  <div class="inner-pane" id="sermon-pane-10">
+  <div class="inner-pane" id="sermon-pane-11">
   <div class="sermon-no-content">
     <div class="no-sermon-icon">✍️</div>
     <p>本日現場講章<br>即將加入</p>
@@ -8402,8 +8700,9 @@ blockquote.sermon-prayer::before {
 <script>
 // ─── State ───
 let currentTab = 0;
-const TOTAL = 11;
+const TOTAL = 12;
 const tabMeta = [
+  ["考察指引", "從廢墟到文本：處境解經指南"],
   ["6月8日", "哥林多地峽與使徒的眼淚"],
   ["6月9日", "雅典的心靈高地與哲學的交會"],
   ["6月10日", "天空之城的靜修與末世之光的雙重奏"],
